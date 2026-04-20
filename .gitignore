@@ -28,14 +28,8 @@ audio/
 img/Organic & AI/captions 1/
 img/Organic & AI/proceso/
 
-# ─── Videos GRANDES que superan el límite de 100 MB ──────────
-# GitHub y Netlify no aceptan archivos individuales > 100 MB.
-# Opciones: convertir a .mp4 comprimido con HandBrake, o alojar
-# en Cloudinary (gratis) y actualizar los src en index.html.
-img/Organic & AI/Videos hechos con Imagenes AI hechas con matriz/VIDEOS WEB/0220 (1).mov
-img/Organic & AI/Videos hechos con Imagenes AI hechas con matriz/VIDEOS WEB/0220 (2).mov
-img/Organic & AI/Videos hechos con Imagenes AI hechas con matriz/VIDEOS WEB/0220edit.mov
-img/Organic & AI/Videos hechos con Imagenes AI hechas con matriz/VIDEOS WEB/Step 4..mov
+# ─── Videos (todos convertidos a .mp4 < 50 MB) ──────────────
+# Los .mov originales ya no existen, todos son .mp4 comprimidos.
 
 # ─── Archivos temporales / logs ───────────────────────────────
 *.log
