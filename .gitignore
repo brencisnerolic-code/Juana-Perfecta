@@ -1,0 +1,43 @@
+# ─── macOS ────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+__MACOSX/
+.AppleDouble
+.LSOverrideIcon
+
+# ─── Local dev config ─────────────────────────────────────────
+.claude/
+
+# ─── Carpetas que NO son parte del sitio web ─────────────────
+# Copia de seguridad (no necesaria en el repo)
+COPIA_ pero no usar/
+
+# Referencias de diseño (capturas de otros sitios)
+Disenos de referencia/
+
+# Archivos de storytelling / documentos internos
+Storytelling 26/
+
+# Fotos de la artista (no referenciadas directamente en HTML)
+Fotos de la artista/
+
+# ─── Audio (por ahora vacío / no implementado) ────────────────
+audio/
+
+# ─── Archivos de proceso internos (no son parte del sitio) ───
+img/Organic & AI/captions 1/
+img/Organic & AI/proceso/
+
+# ─── Videos GRANDES que superan el límite de 100 MB ──────────
+# GitHub y Netlify no aceptan archivos individuales > 100 MB.
+# Opciones: convertir a .mp4 comprimido con HandBrake, o alojar
+# en Cloudinary (gratis) y actualizar los src en index.html.
+img/Organic & AI/Videos hechos con Imagenes AI hechas con matriz/VIDEOS WEB/0220 (1).mov
+img/Organic & AI/Videos hechos con Imagenes AI hechas con matriz/VIDEOS WEB/0220 (2).mov
+img/Organic & AI/Videos hechos con Imagenes AI hechas con matriz/VIDEOS WEB/0220edit.mov
+img/Organic & AI/Videos hechos con Imagenes AI hechas con matriz/VIDEOS WEB/Step 4..mov
+
+# ─── Archivos temporales / logs ───────────────────────────────
+*.log
+*.tmp
+node_modules/

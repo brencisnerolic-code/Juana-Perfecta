@@ -1,0 +1,2123 @@
+/* ═══════════════════════════════════════════════════════════════
+   JUANA PERFECTA — Style System
+   Artista Visual · Brenda Cisnero
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── CUSTOM PROPERTIES ──────────────────────────────────────── */
+:root {
+  /* Palette */
+  --bg:           #E8E0D4;
+  --bg-dark:      #1A1714;
+  --text:         #1A1714;
+  --text-light:   #F2EDE7;
+  --accent:       #C88A3A;
+  --muted:        #8A8278;
+  --surface:      #D9CFBF;
+
+  /* Typography Scale — clamp(min, preferred, max) */
+  --fs-hero:      clamp(3.2rem, 8vw, 9rem);
+  --fs-h1:        clamp(2.4rem, 5.5vw, 6rem);
+  --fs-h2:        clamp(1.8rem, 3.5vw, 3.6rem);
+  --fs-h3:        clamp(1.2rem, 2vw, 1.8rem);
+  --fs-body:      clamp(0.95rem, 1.1vw, 1.15rem);
+  --fs-caption:   clamp(0.72rem, 0.8vw, 0.85rem);
+  --fs-nav:       clamp(0.8rem, 0.9vw, 0.95rem);
+
+  /* Spacing */
+  --space-xs:     clamp(0.5rem, 1vw, 0.75rem);
+  --space-sm:     clamp(1rem, 2vw, 1.5rem);
+  --space-md:     clamp(2rem, 4vw, 3.5rem);
+  --space-lg:     clamp(4rem, 8vw, 7rem);
+  --space-xl:     clamp(6rem, 12vw, 10rem);
+  --space-section: clamp(6rem, 14vh, 12rem);
+
+  /* Layout */
+  --max-width:    1440px;
+  --gutter:       clamp(1.25rem, 3vw, 3rem);
+
+  /* Transitions */
+  --ease-out-expo:  cubic-bezier(.16, 1, .3, 1);
+  --ease-out-quart: cubic-bezier(.25, 1, .5, 1);
+  --dur-fast:       0.1s;
+  --dur-normal:     0.3s;
+  --dur-slow:       0.6s;
+
+  /* Room system */
+  --room-transition: 0.8s;
+  --room-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+
+/* ── RESET ──────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Image & video rendering quality ────────────────────── */
+img,
+video {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+}
+
+html {
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+  overflow: hidden;
+  cursor: none;
+  height: 100vh;
+  width: 100vw;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--text-light);
+}
+
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────── */
+.heading-hero {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--fs-hero);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.heading-1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+.heading-1--italic {
+  font-style: italic;
+}
+
+.heading-2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.heading-3 {
+  font-family: "DM Sans", sans-serif;
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.text-body {
+  font-size: var(--fs-body);
+  line-height: 1.65;
+}
+
+.text-caption {
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.text-mono {
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ROOM SYSTEM — full-viewport fixed sections
+   ═══════════════════════════════════════════════════════════════ */
+
+.rooms {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.room {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: opacity var(--room-transition) var(--room-ease),
+              visibility var(--room-transition) var(--room-ease);
+  will-change: opacity;
+  overflow: hidden;
+}
+
+.room.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* Entering animations (set by state.js) */
+.room.is-entering-forward .room__content,
+.room.is-entering-forward .room__media,
+.room.is-entering-forward .room__text,
+.room.is-entering-forward .room__split,
+.room.is-entering-forward .words-field {
+  animation: roomSlideUp var(--room-transition) var(--room-ease) both;
+}
+
+.room.is-entering-backward .room__content,
+.room.is-entering-backward .room__media,
+.room.is-entering-backward .room__text,
+.room.is-entering-backward .room__split,
+.room.is-entering-backward .words-field {
+  animation: roomSlideDown var(--room-transition) var(--room-ease) both;
+}
+
+@keyframes roomSlideUp {
+  from { opacity: 0; transform: translateY(3vh); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes roomSlideDown {
+  from { opacity: 0; transform: translateY(-3vh); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ── CURSOR ─────────────────────────────────────────────────── */
+#cursor-dot,
+#cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+#cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  transform: translate(-50%, -50%);
+  transition: width var(--dur-normal) var(--ease-out-expo),
+              height var(--dur-normal) var(--ease-out-expo),
+              background-color var(--dur-normal) var(--ease-out-expo);
+}
+
+#cursor-dot.is-hover {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(200, 138, 58, 0.15);
+}
+
+#cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(26, 23, 20, 0.2);
+  background: transparent;
+  transform: translate(-50%, -50%);
+  transition: width var(--dur-normal) var(--ease-out-expo),
+              height var(--dur-normal) var(--ease-out-expo),
+              opacity var(--dur-normal) var(--ease-out-expo),
+              border-color var(--dur-normal) var(--ease-out-expo);
+}
+
+#cursor-ring.is-hover {
+  width: 72px;
+  height: 72px;
+  opacity: 0.4;
+}
+
+/* Light cursor for dark rooms */
+#cursor-dot.is-light {
+  background-color: var(--text-light);
+}
+
+#cursor-dot.is-light.is-hover {
+  background-color: rgba(242, 237, 231, 0.15);
+}
+
+#cursor-ring.is-light {
+  border-color: rgba(242, 237, 231, 0.25);
+}
+
+/* Pigment canvas */
+#cursor-pigment {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: soft-light;
+}
+
+
+/* ── TOP BAR ────────────────────────────────────────────────── */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: var(--space-sm) var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.topbar > * {
+  pointer-events: auto;
+}
+
+.topbar__logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(0.85rem, 1.2vw, 1.15rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: color var(--dur-normal) ease;
+  padding: 0.5em 0;
+}
+
+.topbar__logo:hover {
+  color: var(--accent);
+}
+
+.topbar__counter {
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.15em;
+}
+
+.topbar__counter-sep {
+  opacity: 0.4;
+}
+
+.topbar__social {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.topbar__social svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--text);
+  transition: fill var(--dur-normal) ease;
+}
+
+.topbar__social a:hover svg {
+  fill: var(--accent);
+}
+
+/* Topbar on dark rooms (hero only) */
+body.room-is-dark .topbar__logo {
+  color: var(--text-light);
+}
+
+body.room-is-dark .topbar__counter {
+  color: rgba(242, 237, 231, 0.5);
+}
+
+body.room-is-dark .topbar__social svg {
+  fill: var(--text-light);
+}
+
+
+/* ── LANGUAGE TOGGLE (globe icon in topbar) ──────────────── */
+.topbar__lang-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  opacity: 0.55;
+}
+.topbar__lang-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text);
+  fill: none;
+}
+.topbar__lang-toggle:hover {
+  opacity: 1;
+}
+.topbar__lang-toggle:hover svg {
+  stroke: var(--accent);
+}
+body.room-is-dark .topbar__lang-toggle svg {
+  stroke: var(--text-light);
+}
+body.room-is-dark .topbar__lang-toggle:hover svg {
+  stroke: var(--accent);
+}
+
+/* ── BILINGUAL BLOCKS ────────────────────────────────────── */
+html[lang="en"] [lang="es"] { display: none !important; }
+html[lang="es"] [lang="en"] { display: none !important; }
+
+/* ── LETTERS ROOM (poetic transition) ──────────────────────── */
+.room--letters {
+  background-color: var(--bg);
+}
+
+.letters-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.loading-letter {
+  position: absolute;
+  font-family: "DM Mono", monospace;
+  font-size: clamp(0.65rem, 1vw, 0.9rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.5s ease, transform 0.6s var(--ease-out-expo);
+}
+
+.loading-letter.is-visible {
+  opacity: 0.6;
+}
+
+.loading-letter.is-fading {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+
+/* ── BIO-PROYECTO: DICCIONARIO SECRETO ───────────────────── */
+.room--words-bio {
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+.words-bio-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Each emotion word */
+.bio-word {
+  position: absolute;
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0;
+  cursor: default;
+  user-select: none;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s var(--ease-out-expo),
+    color 0.3s ease,
+    letter-spacing 0.3s ease;
+}
+
+.bio-word.is-visible {
+  opacity: var(--base-opacity, 0.45);
+}
+
+.bio-word.is-dimmed {
+  opacity: 0.1;
+}
+
+.bio-word.is-hovered {
+  opacity: 1 !important;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+}
+
+/* AI image preview — floats over background, white removed via multiply */
+.words-bio-preview {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+
+.words-bio-preview.is-visible {
+  opacity: 1;
+}
+
+.words-bio-preview__img,
+#bio-words-preview-canvas {
+  max-width: 52vw;
+  max-height: 68vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transform: scale(0.96);
+  filter: drop-shadow(0px 12px 32px rgba(26, 23, 20, 0.22));
+  transition: opacity 0.35s ease, transform 0.5s var(--ease-out-expo), filter 0.5s ease;
+}
+
+.words-bio-preview.is-visible .words-bio-preview__img,
+.words-bio-preview.is-visible #bio-words-preview-canvas {
+  transform: scale(1);
+  filter: drop-shadow(0px 18px 44px rgba(26, 23, 20, 0.28));
+}
+
+/* Footer label + hint */
+.words-bio-footer {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.words-bio-footer__label {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.4;
+}
+
+.words-bio-footer__hint {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+/* ── HUB ROOM (3 main works selection) ────────────────────── */
+.room--hub {
+  background-color: var(--bg);
+}
+
+.hub__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  width: 100%;
+  max-width: var(--max-width);
+  padding: var(--space-lg) var(--gutter);
+  align-items: center;
+}
+
+.hub__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  cursor: none;
+  height: 65vh;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.hub__card:hover {
+  transform: translateY(-4px);
+}
+
+.hub__card-img {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hub__card-img img {
+  max-width: 85%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.hub__card:hover .hub__card-img img {
+  transform: scale(1.04);
+}
+
+.hub__card-info {
+  padding: var(--space-xs) 0;
+}
+
+.hub__card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.hub__card-subtitle {
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.3em;
+}
+
+.hub__artista-link {
+  position: absolute;
+  bottom: var(--space-md);
+  right: var(--gutter);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: "DM Sans", sans-serif;
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  opacity: 0.6;
+  transition: opacity var(--dur-normal) ease, color var(--dur-normal) ease;
+  cursor: none;
+}
+
+.hub__artista-link:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.hub__artista-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* ── TEXT INTRO ROOMS ─────────────────────────────────────── */
+.room--text-intro {
+  background-color: var(--bg);
+}
+
+.room__section-label {
+  position: absolute;
+  top: var(--space-sm);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  opacity: 0.4;
+  pointer-events: none;
+  display: none;  /* Hidden — info already shown in topbar counter */
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.intro__label {
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+}
+
+.intro__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--fs-h2);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-md);
+  line-height: 1.15;
+}
+
+.intro__text {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 60ch;
+}
+
+.intro__text p + p {
+  margin-top: 1em;
+}
+
+
+/* ── BACK BUTTON (return to hub) ──────────────────────────── */
+.room__nav--back {
+  top: var(--space-md);
+  left: var(--gutter);
+  bottom: auto;
+}
+
+
+/* ── NAVIGATION OVERLAY ─────────────────────────────────────── */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--dur-slow) var(--ease-out-expo),
+              visibility var(--dur-slow) var(--ease-out-expo);
+}
+
+.nav-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.nav-overlay__inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 800px;
+  padding: var(--gutter);
+}
+
+.nav-overlay__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.nav-overlay__label {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(0.6rem, 0.7vw, 0.72rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.6;
+  margin-bottom: var(--space-sm);
+}
+
+.nav-overlay__link {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.85;
+  transition: color var(--dur-normal) ease, opacity var(--dur-normal) ease;
+  will-change: transform;
+}
+
+.nav-overlay__link:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ROOM TYPES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── HERO ROOM ──────────────────────────────────────────────── */
+.room--hero {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  perspective: 1200px;
+}
+
+/* 3D perspective container */
+.hero-perspective {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Hero video — fills entire viewport, centered with inset */
+.hero-video {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+/* Gradient overlay for text legibility */
+.room--hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 23, 20, 0.65) 0%,
+    rgba(26, 23, 20, 0.1) 35%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.room__content--hero {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  padding: 0 var(--gutter);
+  width: 100%;
+  max-width: var(--max-width);
+  align-self: flex-end;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--fs-hero);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.hero__subtitle {
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(242, 237, 231, 0.5);
+  margin-top: var(--space-sm);
+}
+
+
+/* ── ARTWORK ROOMS (75/25 split) ────────────────────────────── */
+.room--artwork,
+.room--video {
+  display: flex;
+  align-items: stretch;
+  background-color: var(--bg);
+}
+
+.room__media {
+  flex: 0 0 75%;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  overflow: hidden;
+  /* Beige background ensures multiply blends whites correctly */
+  background-color: var(--bg);
+}
+
+.room__image {
+  max-width: 100%;
+  max-height: calc(100vh - var(--space-md) * 2);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.6s var(--ease-out-expo);
+  cursor: none;
+}
+
+.room__image--cutout {
+  filter: drop-shadow(4px 6px 12px rgba(0, 0, 0, 0.35));
+}
+
+.room__image:hover {
+  transform: scale(1.03);
+}
+
+.room__image.is-zoomed {
+  transform: scale(2.2);
+  cursor: none;
+  z-index: 20;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/*
+  ╔══════════════════════════════════════════════════════╗
+  ║  REGLA DE FORMATO — LEER ANTES DE AGREGAR IMÁGENES  ║
+  ╠══════════════════════════════════════════════════════╣
+  ║  Cada .room__media DEBE tener una clase modificadora ║
+  ║  según las dimensiones reales del archivo de imagen: ║
+  ║                                                      ║
+  ║  ratio = ancho ÷ alto del archivo                    ║
+  ║  > 1.2  →  room__media--landscape                   ║
+  ║  < 0.8  →  room__media--portrait                    ║
+  ║  0.8–1.2 → room__media--square                      ║
+  ╚══════════════════════════════════════════════════════╝
+*/
+
+.room__media--portrait .room__image {
+  max-height: calc(100vh - var(--space-md) * 2);
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.room__media--landscape .room__image {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - var(--space-md) * 2);
+  object-fit: contain;
+}
+
+.room__media--square .room__image {
+  max-height: min(85vmin, calc(100vh - var(--space-md) * 2));
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.room__video {
+  width: 100%;
+  max-height: calc(100vh - var(--space-md) * 2);
+  object-fit: contain;
+}
+
+.room__text {
+  flex: 0 0 25%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-lg) var(--gutter) var(--space-lg) var(--space-sm);
+  border-left: 1px solid rgba(26, 23, 20, 0.08);
+}
+
+.room__number {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--accent);
+}
+
+.room__title {
+  margin-bottom: var(--space-xs);
+}
+
+.room__details {
+  margin-bottom: 0.3em;
+}
+
+.room__ficha {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  opacity: 0.5;
+  line-height: 1.9;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+}
+
+.room--artwork .room__image {
+  mix-blend-mode: multiply;
+}
+
+.room__description {
+  color: var(--muted);
+  max-width: 36ch;
+  margin-bottom: var(--space-sm);
+}
+
+.room__category {
+  margin-top: auto;
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  border: 1px solid rgba(26, 23, 20, 0.1);
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+
+/* Word transition rooms removed — words now used as loading screen */
+
+
+/* ── STATEMENT ROOM ─────────────────────────────────────────── */
+.room--statement {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.room__content--centered {
+  position: relative;
+  z-index: 2;
+  max-width: 65ch;
+  padding: var(--gutter);
+  padding-top: calc(var(--space-md) + 1rem);
+  padding-bottom: calc(var(--space-md) + 2rem);
+  text-align: left;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.statement__text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.4rem, 2.8vw, 2.6rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.statement__text::before {
+  content: "\201C";
+  display: block;
+  font-size: 4em;
+  line-height: 0.5;
+  color: var(--accent);
+  opacity: 0.3;
+  margin-bottom: var(--space-sm);
+}
+
+.statement__small {
+  color: var(--muted);
+}
+
+
+/* ── ABOUT ROOM ─────────────────────────────────────────────── */
+.room--about {
+  background-color: var(--bg);
+}
+
+.room__split {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.room__split-text {
+  flex: 0 0 55%;
+  padding: var(--space-lg) var(--space-md) var(--space-lg) var(--gutter);
+  max-width: 55ch;
+}
+
+.room__split-text h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.room__split-text p {
+  color: var(--muted);
+  margin-bottom: 1em;
+}
+
+.room__split-media {
+  flex: 0 0 45%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.room__split-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+}
+
+.about__skill-tag {
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.35em 0.75em;
+  border: 1px solid rgba(26, 23, 20, 0.15);
+  border-radius: 2px;
+}
+
+
+/* ── CONTACT ROOM ───────────────────────────────────────────── */
+.room--contact {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.room--contact .room__split {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  gap: var(--space-lg);
+}
+
+.room--contact .room__split-text {
+  flex: 0 0 50%;
+  padding: 0;
+  max-width: none;
+}
+
+.room__split-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.contact__info {
+  margin-top: var(--space-sm);
+}
+
+.contact__info-item {
+  margin-bottom: var(--space-sm);
+}
+
+.contact__info-label {
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.contact__info-value {
+  font-size: var(--fs-body);
+  color: var(--text);
+}
+
+.contact__info-value a {
+  transition: color var(--dur-normal) ease;
+}
+
+.contact__info-value a:hover {
+  color: var(--accent);
+}
+
+/* Contact form */
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.form-field input,
+.form-field textarea {
+  font-family: "DM Sans", sans-serif;
+  font-size: var(--fs-body);
+  padding: 0.75em;
+  border: none;
+  border-bottom: 1px solid rgba(26, 23, 20, 0.15);
+  border-radius: 0;
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--dur-normal) ease;
+  cursor: none;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgba(26, 23, 20, 0.3);
+}
+
+.form-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+
+/* ── ROOM NAVIGATION BUTTONS ────────────────────────────────── */
+.room__nav {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.75em 1.25em;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: color var(--dur-normal) ease,
+              border-color var(--dur-normal) ease,
+              opacity var(--dur-normal) ease;
+  opacity: 0.6;
+  will-change: transform;
+}
+
+.room__nav:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.room__nav svg {
+  width: 16px;
+  height: 16px;
+}
+
+.room__nav--next {
+  bottom: var(--space-md);
+  right: var(--gutter);
+}
+
+.room__nav--prev {
+  bottom: var(--space-md);
+  left: var(--gutter);
+}
+
+.room__nav-text {
+  font-family: "DM Mono", monospace;
+  letter-spacing: 0.08em;
+}
+
+/* Nav buttons on dark rooms (hero only) */
+.room--hero .room__nav {
+  color: rgba(242, 237, 231, 0.5);
+}
+
+.room--hero .room__nav:hover {
+  color: var(--accent);
+}
+
+
+/* ── MAGNETIC BUTTON (generic) ──────────────────────────────── */
+.mag-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1em 2.5em;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  background: transparent;
+  color: inherit;
+  transition: background-color var(--dur-normal) ease,
+              color var(--dur-normal) ease;
+  will-change: transform;
+}
+
+/* Contact form submit button override */
+.room--contact .mag-btn[type="submit"] {
+  color: var(--text);
+  border-color: var(--text);
+  margin-top: var(--space-xs);
+}
+
+.room--contact .mag-btn[type="submit"]:hover {
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+
+/* ── PROGRESS BAR ───────────────────────────────────────────── */
+.progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(26, 23, 20, 0.06);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent);
+  transition: width 0.5s var(--ease-out-expo);
+}
+
+
+/* ── SOUND TOGGLE ───────────────────────────────────────────── */
+.sound-toggle {
+  position: fixed;
+  bottom: var(--space-sm);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: color var(--dur-normal) ease,
+              opacity var(--dur-normal) ease;
+  opacity: 0.5;
+}
+
+.sound-toggle:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.sound-toggle__icon {
+  width: 18px;
+  height: 18px;
+  display: none;
+}
+
+.sound-toggle__icon--off {
+  display: block;
+}
+
+.sound-toggle.is-playing .sound-toggle__icon--off {
+  display: none;
+}
+
+.sound-toggle.is-playing .sound-toggle__icon--on {
+  display: block;
+}
+
+body.room-is-dark .sound-toggle {
+  color: rgba(242, 237, 231, 0.4);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out-expo),
+              transform 0.7s var(--ease-out-expo);
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for sequential reveals */
+[data-reveal]:nth-child(2) { transition-delay: 0.08s; }
+[data-reveal]:nth-child(3) { transition-delay: 0.16s; }
+[data-reveal]:nth-child(4) { transition-delay: 0.24s; }
+[data-reveal]:nth-child(5) { transition-delay: 0.32s; }
+[data-reveal]:nth-child(6) { transition-delay: 0.40s; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── TABLET (≤ 1024px) ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .nav-overlay__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  /* Hub: 2 columns on tablet */
+  .hub__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hub__card {
+    height: 50vh;
+  }
+}
+
+/* ── MOBILE (≤ 768px) ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* ── Topbar ─────────────────────────────────────────────── */
+  .topbar {
+    padding: 0.75rem var(--gutter);
+  }
+  .topbar__logo {
+    font-size: clamp(0.88rem, 3.5vw, 1.05rem);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .topbar__social {
+    gap: 0.2rem;
+  }
+  .topbar__social a {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .topbar__lang-toggle {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .topbar__counter {
+    display: none;
+  }
+
+  /* ── Nav overlay ────────────────────────────────────────── */
+  .nav-overlay__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    width: 100%;
+    padding: var(--space-xl) var(--gutter);
+    align-content: center;
+  }
+  .nav-overlay__group {
+    gap: 0.2rem;
+  }
+  .nav-overlay__label {
+    font-size: 0.7rem;
+    margin-bottom: 0.75rem;
+  }
+  .nav-overlay__link {
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0.6em 0;
+  }
+
+  /* ── Artwork rooms: stack vertically ────────────────────── */
+  .room--artwork,
+  .room--video {
+    flex-direction: column;
+  }
+  .room__media {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 56vh;
+    padding: var(--space-xs);
+  }
+  .room__image {
+    max-height: calc(56vh - var(--space-xs) * 2);
+  }
+  .room__text {
+    flex: 1;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(26, 23, 20, 0.08);
+    padding: var(--space-xs) var(--gutter) calc(var(--space-sm) + 56px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  .room__title {
+    font-size: clamp(1.3rem, 5.5vw, 2.2rem);
+    line-height: 1.15;
+  }
+  .room__description {
+    max-width: 100%;
+    font-size: clamp(0.85rem, 3vw, 0.95rem);
+    line-height: 1.7;
+  }
+
+  /* ── Nav buttons: touch-friendly ────────────────────────── */
+  .room__nav {
+    padding: 0.5em 0.75em;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .room__nav svg {
+    width: 20px;
+    height: 20px;
+  }
+  .room__nav-text {
+    display: none;
+  }
+  .room__nav--back {
+    top: var(--space-sm);
+    padding: 0.5em 0.75em;
+  }
+
+  /* ── Text intro rooms ───────────────────────────────────── */
+  .room__content {
+    padding-bottom: calc(var(--space-md) + 60px);
+    box-sizing: border-box;
+  }
+  .intro__title {
+    font-size: clamp(1.6rem, 8vw, 3rem);
+  }
+  .intro__text {
+    max-width: 100%;
+    font-size: clamp(0.88rem, 3.2vw, 1rem);
+  }
+
+  /* ── Hub ────────────────────────────────────────────────── */
+  .hub__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    padding: calc(var(--space-lg) + 3.5rem) var(--gutter) calc(var(--space-md) + 3.5rem);
+    overflow-y: auto;
+    max-height: 100vh;
+    align-items: start;
+    box-sizing: border-box;
+    overscroll-behavior: contain;
+  }
+  .hub__card {
+    height: 38vh;
+  }
+  .hub__card-title {
+    font-size: 0.88rem;
+  }
+  .hub__artista-link {
+    bottom: var(--space-sm);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── About room: stack ──────────────────────────────────── */
+  .room__split {
+    flex-direction: column;
+  }
+  .room__split-text {
+    flex: none;
+    width: 100%;
+    padding: var(--space-md) var(--gutter) var(--space-sm);
+    max-width: none;
+    overflow-y: auto;
+    max-height: 55vh;
+    overscroll-behavior: contain;
+  }
+  .room__split-media {
+    flex: none;
+    width: 100%;
+    height: 45vh;
+  }
+
+  /* ── Contact room: stack ────────────────────────────────── */
+  .room--contact .room__split {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: stretch;
+    overflow-y: auto;
+    padding: var(--space-lg) var(--gutter) var(--space-lg);
+    overscroll-behavior: contain;
+  }
+  .room--contact .room__split-text {
+    flex: none;
+    padding: 0;
+  }
+  .room__split-form {
+    flex: none;
+    width: 100%;
+  }
+  /* Prevent iOS auto-zoom on form inputs (font-size < 16px triggers zoom) */
+  .form-field input,
+  .form-field textarea {
+    font-size: 16px;
+  }
+
+  /* ── Statement room ─────────────────────────────────────── */
+  .room__content--centered {
+    max-width: 100%;
+    padding: var(--space-lg) var(--gutter) calc(var(--space-lg) + 2rem);
+    box-sizing: border-box;
+  }
+
+  /* ── Hero ───────────────────────────────────────────────── */
+  .hero__title {
+    font-size: clamp(2.4rem, 12vw, 4.5rem);
+  }
+
+  /* ── Breath rooms ───────────────────────────────────────── */
+  .breath__content {
+    max-width: 90vw;
+    padding: 1.5rem;
+  }
+  .breath__text {
+    font-size: clamp(1.7rem, 7vw, 3.2rem);
+  }
+
+  /* ── Cinema images ──────────────────────────────────────── */
+  .cinema__media {
+    padding: 2vh 2vw 7vh;
+  }
+  .cinema__image {
+    max-width: 96vw;
+    max-height: 90vh;
+  }
+
+  /* ── Framed rooms ───────────────────────────────────────── */
+  .framed__frame {
+    max-width: 90vw;
+    max-height: 78vh;
+    padding: 1.5vh 2.5vw;
+  }
+  .framed__image {
+    max-width: 84vw;
+    max-height: 72vh;
+  }
+
+  /* ── Words-bio: bigger preview on mobile ────────────────── */
+  .words-bio-preview__img,
+  #bio-words-preview-canvas {
+    max-width: 80vw;
+    max-height: 52vh;
+  }
+
+  /* ── Section jump buttons ───────────────────────────────── */
+  #section-jumps {
+    bottom: calc(var(--space-md) + 2.8rem);
+    padding: 0 calc(var(--gutter) + 0.5rem);
+  }
+  .section-jump {
+    font-size: 0.62rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 0.5em 0;
+  }
+
+  /* ── Global scroll: bigger touch targets ────────────────── */
+  #global-scroll {
+    right: 0.3rem;
+  }
+  .global-scroll__btn {
+    font-size: 0.6rem;
+    padding: 0.6em 0.5em;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ── MOBILE SMALL (≤ 480px) ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .room__media {
+    height: 48vh;
+    padding: var(--space-xs);
+  }
+  .room__image {
+    max-height: calc(48vh - var(--space-xs) * 2);
+  }
+  .room__text {
+    padding: var(--space-xs) var(--gutter) calc(var(--space-xs) + 56px);
+  }
+  .room__title {
+    font-size: clamp(1.15rem, 5vw, 1.6rem);
+  }
+  .statement__text {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+  }
+  .hub__card {
+    height: 32vh;
+  }
+  .hub__inner {
+    gap: var(--space-xs);
+  }
+  .hero__title {
+    font-size: clamp(2.2rem, 13vw, 3.8rem);
+  }
+  .breath__text {
+    font-size: clamp(1.5rem, 7.5vw, 2.6rem);
+  }
+  .breath__content {
+    max-width: 94vw;
+  }
+  .nav-overlay__link {
+    font-size: 0.95rem;
+  }
+  .section-jump {
+    font-size: 0.58rem;
+  }
+  .global-scroll__btn {
+    font-size: 0.55rem;
+  }
+  /* Even tighter back button on small screens */
+  .room__nav--back {
+    top: 0.4rem;
+  }
+}
+
+
+/* ── TOUCH DEVICES: disable custom cursor + fine-tune interactions ── */
+@media (hover: none) {
+  html, body, a, button, input, textarea {
+    cursor: auto !important;
+  }
+
+  #cursor-dot,
+  #cursor-ring,
+  #cursor-pigment {
+    display: none !important;
+  }
+
+  /* Hub cards: remove hover lift (tap doesn't linger) */
+  .hub__card:hover {
+    transform: none;
+  }
+  .hub__card-img img:hover {
+    transform: none;
+  }
+
+  /* Nav links: no hover color change on touch */
+  .nav-overlay__link:hover {
+    color: inherit;
+    opacity: 0.85;
+  }
+
+  /* Room image: disable hover scale (prevents stuck zoom on tap) */
+  .room__image:hover {
+    transform: none;
+  }
+
+  /* Global scroll buttons: always slightly visible on touch */
+  .global-scroll__btn {
+    opacity: 0.45;
+  }
+
+  /* Section jumps: remove transform delay (snap in immediately) */
+  .section-jump {
+    transition: opacity 0.2s ease;
+  }
+}
+
+
+/* ── REDUCED MOTION ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .room {
+    transition: none;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROCESS & WORKS — new biomaterials rooms
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Breath rooms (text transitions) ─────────────────────── */
+.room--breath {
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Breath with video background */
+.room--breath-video {
+  background-color: var(--bg-dark);
+}
+.process-intro__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.85;
+}
+.breath__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 23, 20, 0.52);
+  z-index: 1;
+  pointer-events: none;
+}
+.room--breath-video .breath__content,
+.room--breath-video .breath__footer,
+.room--breath-video .room__nav {
+  position: relative;
+  z-index: 2;
+}
+.room--breath-video .breath__text {
+  color: var(--bg);
+}
+.room--breath-video .breath__label {
+  color: rgba(232, 224, 212, 0.55);
+}
+.room--breath.room--breath-dark {
+  background-color: var(--bg-dark);
+}
+.room--breath.room--breath-dark .breath__text {
+  color: var(--bg);
+}
+.room--breath.room--breath-dark .breath__label {
+  color: rgba(232, 224, 212, 0.5);
+}
+.breath__content {
+  max-width: 72vw;
+  text-align: center;
+  padding: 2rem;
+}
+.breath__text {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+  color: var(--text);
+  margin: 0;
+}
+.breath__footer {
+  position: absolute;
+  left: 50%;
+  bottom: 4vh;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.breath__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.75;
+}
+
+/* ── Cinema rooms (full image w/ caption) ────────────────── */
+.room--cinema {
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.cinema__media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 4vw 8vh;
+  box-sizing: border-box;
+}
+.cinema__image {
+  max-width: 92vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 24px 60px rgba(26, 23, 20, 0.25));
+}
+.cinema__caption {
+  position: absolute;
+  left: 50%;
+  bottom: 3.5vh;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+}
+
+/* ── Framed rooms (matrices as gallery pieces) ───────────── */
+.room--framed {
+  background-color: #0f0d0b;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.framed__wall {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(200, 138, 58, 0.12) 0%, rgba(15, 13, 11, 0) 55%),
+    linear-gradient(180deg, #14110e 0%, #0a0907 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.framed__frame {
+  position: relative;
+  max-width: 62vw;
+  max-height: 72vh;
+  padding: 2.2vh 2.2vw;
+  background: linear-gradient(145deg, #2a2218 0%, #1a1511 100%);
+  border: 1px solid rgba(200, 138, 58, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 2px rgba(232, 224, 212, 0.05),
+    0 40px 80px rgba(0, 0, 0, 0.65),
+    0 0 120px rgba(200, 138, 58, 0.08);
+}
+.framed__image {
+  display: block;
+  max-width: 56vw;
+  max-height: 66vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(1.02) contrast(1.02);
+}
+.room--framed .cinema__caption .breath__label {
+  color: rgba(232, 224, 212, 0.55);
+}
+
+/* ── Full-image rooms (matrices 05–09) ──────────────────── */
+.room--fullimg {
+  background-color: #000;
+  overflow: hidden;
+}
+.fullimg__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Video full rooms ────────────────────────────────────── */
+.room--video-full {
+  background-color: var(--bg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-full__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.video-full__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1.06);
+  display: block;
+}
+.room--video-full .cinema__caption .breath__label {
+  color: var(--muted);
+}
+
+/* Video 05: fondo oscuro */
+#works-video-05 {
+  background-color: #0a0907;
+}
+#works-video-05 .cinema__caption .breath__label {
+  color: rgba(232, 224, 212, 0.55);
+}
+
+/* ── process-intro: force column flex so text centers properly ── */
+#process-intro {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#process-intro .breath__content {
+  text-align: center;
+  width: 100%;
+  max-width: 72vw;
+  margin: auto;
+}
+
+/* ── Section jump buttons ────────────────────────────────── */
+#section-jumps {
+  position: fixed;
+  bottom: var(--space-md);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  pointer-events: none;
+  z-index: 15;
+}
+
+.section-jump {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4em 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, color 0.2s ease;
+  transform: translateY(4px);
+  /* offset vertical para quedar justo arriba de la flecha */
+  margin-bottom: 3.6em;
+}
+
+.section-jump.is-visible {
+  opacity: 0.45;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.section-jump:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* ── Global scroll (up/down) ─────────────────────────────── */
+#global-scroll {
+  position: fixed;
+  right: calc(var(--gutter) * 0.5);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 15;
+  pointer-events: auto;
+}
+
+.global-scroll__btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  opacity: 0.3;
+  cursor: pointer;
+  padding: 0.3em 0.4em;
+  line-height: 1;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.global-scroll__btn:hover {
+  opacity: 0.9;
+  color: var(--accent);
+}
+
+/* Reveal animation hooks for new rooms */
+.room--breath [data-reveal],
+.room--cinema [data-reveal],
+.room--framed [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1.1s ease, transform 1.1s ease;
+}
+.room--breath [data-reveal].is-revealed,
+.room--cinema [data-reveal].is-revealed,
+.room--framed [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}

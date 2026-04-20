@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juana Perfecta — Brenda Cisnero · Visual Artist</title>
+  <meta name="description" content="Argentine visual artist. Abstract and hyperrealist painting, biomaterials, and generative art with artificial intelligence.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══ CURSOR SYSTEM ═══ -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+  <canvas id="cursor-pigment" aria-hidden="true"></canvas>
+
+  <!-- ═══ SECTION JUMP BUTTONS ═══ -->
+  <div id="section-jumps" aria-hidden="true">
+    <button id="jump-prev-section" class="section-jump section-jump--prev">
+      ← <span id="jump-prev-label"></span>
+    </button>
+    <button id="jump-next-section" class="section-jump section-jump--next">
+      <span id="jump-next-label"></span> →
+    </button>
+  </div>
+
+  <!-- ═══ GLOBAL SCROLL ═══ -->
+  <div id="global-scroll">
+    <button id="global-up" class="global-scroll__btn" aria-label="Anterior">↑</button>
+    <button id="global-down" class="global-scroll__btn" aria-label="Siguiente">↓</button>
+  </div>
+
+  <!-- ═══ SOUND TOGGLE ═══ -->
+  <button id="sound-toggle" class="sound-toggle" aria-label="Activar sonido">
+    <svg class="sound-toggle__icon sound-toggle__icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg class="sound-toggle__icon sound-toggle__icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>
+    </svg>
+  </button>
+
+  <!-- ═══ TOP BAR ═══ -->
+  <header class="topbar" role="banner">
+    <button class="topbar__logo" data-nav-toggle aria-label="Menú de navegación">
+      Juana Perfecta
+    </button>
+
+    <div class="topbar__social">
+      <button id="lang-toggle" class="topbar__lang-toggle" aria-label="Switch to English">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+      </button>
+      <a href="https://www.instagram.com/juanaperfecta/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://wa.link/yh05yd" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ═══ NAVIGATION OVERLAY ═══ -->
+  <nav id="nav-overlay" class="nav-overlay" role="navigation" aria-label="Navegación principal" aria-hidden="true">
+    <div class="nav-overlay__inner">
+      <div class="nav-overlay__group">
+        <span class="nav-overlay__label" data-i18n="nav.works">Works</span>
+        <a href="#" class="nav-overlay__link" data-enter-context="biomaterials">Biomaterials · AI Generative</a>
+        <a href="#" class="nav-overlay__link" data-enter-context="abstract">Abstract Art</a>
+        <a href="#" class="nav-overlay__link" data-enter-context="platasi">Platasí</a>
+      </div>
+      <div class="nav-overlay__group">
+        <span class="nav-overlay__label" data-i18n="nav.artist">Artist</span>
+        <a href="#" class="nav-overlay__link" data-enter-context="artista" data-context-index="0">Statement</a>
+        <a href="#" class="nav-overlay__link" data-enter-context="artista" data-context-index="1" data-i18n="nav.aboutme">About Me</a>
+        <a href="#" class="nav-overlay__link" data-enter-context="artista" data-context-index="2" data-i18n="nav.contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ROOMS — Hierarchical gallery experience
+       ═══════════════════════════════════════════════════════════ -->
+  <main id="rooms" class="rooms">
+
+    <!-- ═══════════════════════════════════════════════════════
+         MAIN CONTEXT — Hero → Letters → Hub
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- ═══ HERO ═══ -->
+    <section class="room room--hero is-active" id="hero" data-context="main">
+      <div class="hero-perspective" id="hero-perspective">
+        <video class="hero-video" id="hero-video"
+               src="video/hero.mp4"
+               muted loop playsinline autoplay preload="auto"></video>
+      </div>
+      <div class="room__content room__content--hero">
+        <h1 class="hero__title">Juana<br>Perfecta</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">Visual Artist — Brenda Cisnero</p>
+      </div>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Enter">
+        <span class="room__nav-text" data-i18n="hero.enter">Enter</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </section>
+
+    <!-- ═══ LETTERS (poetic transition) ═══ -->
+    <section class="room room--letters" id="letters" data-context="main">
+      <div class="letters-field" id="letters-field"></div>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Continuar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Volver">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- ═══ HUB (3 main works selection) ═══ -->
+    <section class="room room--hub" id="hub" data-context="main">
+      <div class="hub__inner">
+        <div class="hub__card" data-enter-context="biomaterials">
+          <div class="hub__card-img">
+            <img src="img/galeria/hub-biomaterials.png?v=2" alt="Biomaterials — AI Generative">
+          </div>
+          <div class="hub__card-info">
+            <h2 class="hub__card-title">Biomaterials<br>AI Generative</h2>
+            <p class="hub__card-subtitle" data-i18n="hub.bio.subtitle">Organic Matrices · AI · Video</p>
+          </div>
+        </div>
+        <div class="hub__card" data-enter-context="abstract">
+          <div class="hub__card-img">
+            <img src="img/galeria/hub-abstract.png?v=2" alt="Abstract Art">
+          </div>
+          <div class="hub__card-info">
+            <h2 class="hub__card-title">Abstract Art</h2>
+            <p class="hub__card-subtitle" data-i18n="hub.abs.subtitle">Mixed Media · 2022 / 2023</p>
+          </div>
+        </div>
+        <div class="hub__card" data-enter-context="platasi">
+          <div class="hub__card-img">
+            <img src="img/galeria/hub-platasi.png?v=2" alt="Platasí">
+          </div>
+          <div class="hub__card-info">
+            <h2 class="hub__card-title">Platasí</h2>
+            <p class="hub__card-subtitle" data-i18n="hub.pla.subtitle">Mixed media · 2023 / 2024</p>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="hub__artista-link" data-enter-context="artista">
+        <span data-i18n="hub.artist">Artist</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Volver">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         BIOMATERIALS CONTEXT
+         Proyecto → Matrices (4) → AI Gen Imágenes (1) → AI Gen Videos (3)
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- Proyecto (diccionario secreto — emotion words) -->
+    <section class="room room--words-bio" id="bio-proyecto" data-context="biomaterials">
+      <div class="words-bio-field" id="bio-words-field"></div>
+      <div class="words-bio-preview" id="bio-words-preview">
+        <img src="" alt="" class="words-bio-preview__img" id="bio-words-preview-img">
+      </div>
+      <div class="words-bio-footer">
+        <span class="words-bio-footer__label text-mono">Biomaterials · AI Generative</span>
+        <p class="words-bio-footer__hint text-mono">hover a word</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PROCESS — From matter to model
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- Process intro: video breath -->
+    <section class="room room--breath room--breath-video" id="process-intro" data-context="biomaterials">
+      <video class="process-intro__bg" src="img/Organic%20%26%20AI/matrices%20/video-c61a3b65-8afc-44d8-9657-23b8e2bf9af1.mp4" muted playsinline preload="auto"></video>
+      <div class="breath__overlay"></div>
+      <div class="breath__content">
+        <p class="breath__text heading-2" data-reveal data-i18n="process.intro.text">Before images,<br>there were materials.</p>
+      </div>
+      <div class="breath__footer">
+        <span class="breath__label text-mono" data-i18n="process.intro.label">from matter to model</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 01 -->
+    <section class="room room--fullimg" id="process-matriz-01" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix01.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 01</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 02 -->
+    <section class="room room--fullimg" id="process-matriz-02" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix02.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 02</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 03 -->
+    <section class="room room--fullimg" id="process-matriz-03" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix03.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 03</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 04 -->
+    <section class="room room--fullimg" id="process-matriz-04" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix04.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 04</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 05 -->
+    <section class="room room--fullimg" id="process-matriz-05" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix05.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 05</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 06 -->
+    <section class="room room--fullimg" id="process-matriz-06" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix06.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 06</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 07 -->
+    <section class="room room--fullimg" id="process-matriz-07" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix07.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 07</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 08 -->
+    <section class="room room--fullimg" id="process-matriz-08" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix08.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 08</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 09 -->
+    <section class="room room--fullimg" id="process-matriz-09" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix09.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 09</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 10 -->
+    <section class="room room--fullimg" id="process-matriz-10" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix10.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 10</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matrix 11 -->
+    <section class="room room--fullimg" id="process-matriz-12" data-context="biomaterials">
+      <img src="img/Organic%20%26%20AI/matrices%20/matrix11.png" alt="Organic matrix — biomaterial scan" class="fullimg__image">
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">matrix · 11</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         WORKS — Generated images + videos
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- Generated 01 (was works-img-04) -->
+    <section class="room room--cinema" id="works-img-04" data-context="biomaterials">
+      <div class="cinema__media">
+        <img src="img/Organic%20%26%20AI/Imagenes%20AI%20hechas%20con%20matriz/S91-xcFCQShXPAY9ybxDn_9adf6c1ae1224eeea66a2dbb892aa47c_Fotor.jpg" alt="AI-generated work from organic matrix" class="cinema__image" data-reveal>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">generated · 01</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Generated 02 (was works-img-02) -->
+    <section class="room room--cinema" id="works-img-02" data-context="biomaterials">
+      <div class="cinema__media">
+        <img src="img/Organic%20%26%20AI/Imagenes%20AI%20hechas%20con%20matriz/I-uTOWbBJWASCfyiymIeJ_85518a4a89d4481784403011ae7a40a5.jpg" alt="AI-generated work from organic matrix" class="cinema__image" data-reveal>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">generated · 02</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Generated 03 (was works-img-05) -->
+    <section class="room room--cinema" id="works-img-05" data-context="biomaterials">
+      <div class="cinema__media">
+        <img src="img/Organic%20%26%20AI/Imagenes%20AI%20hechas%20con%20matriz/dHHw9gVi3RfQbgzs1pjgb_be69660c388548c7b771ef60d5984edf.jpg" alt="AI-generated work from organic matrix" class="cinema__image" data-reveal>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">generated · 03</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Generated 04 (was works-img-06) -->
+    <section class="room room--cinema" id="works-img-06" data-context="biomaterials">
+      <div class="cinema__media">
+        <img src="img/Organic%20%26%20AI/Imagenes%20AI%20hechas%20con%20matriz/dxoK86GhuC8KruLtIIBpS_caf3f70280354f6a965eaa0c27d01ed5.jpg" alt="AI-generated work from organic matrix" class="cinema__image" data-reveal>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">generated · 04</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Generated 05 (was works-img-08) -->
+    <section class="room room--cinema" id="works-img-08" data-context="biomaterials">
+      <div class="cinema__media">
+        <img src="img/Organic%20%26%20AI/Imagenes%20AI%20hechas%20con%20matriz/lqpMkYAhgjFotRhMPxAeH_c198ef1bfb0c413ebf818b3f6a86fd14.jpg" alt="AI-generated work from organic matrix" class="cinema__image" data-reveal>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">generated · 05</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Generated 06 (was works-img-09) -->
+    <section class="room room--cinema" id="works-img-09" data-context="biomaterials">
+      <div class="cinema__media">
+        <img src="img/Organic%20%26%20AI/Imagenes%20AI%20hechas%20con%20matriz/siTHB9N3JD0AHap5nkOkJ_e2f8aa74df57417c9329d6b7aa6a6ca3.jpg" alt="AI-generated work from organic matrix" class="cinema__image" data-reveal>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">generated · 06</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Generated 07 (was works-img-10) -->
+    <section class="room room--cinema" id="works-img-10" data-context="biomaterials">
+      <div class="cinema__media">
+        <img src="img/Organic%20%26%20AI/Imagenes%20AI%20hechas%20con%20matriz/wosONvXwBB27sTftl4-NO_1e0683987285434f8e5c7fb738ed3195.jpg" alt="AI-generated work from organic matrix" class="cinema__image" data-reveal>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">generated · 07</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Generated 08 (was works-img-07) — last -->
+    <section class="room room--cinema" id="works-img-07" data-context="biomaterials">
+      <div class="cinema__media">
+        <img src="img/Organic%20%26%20AI/Imagenes%20AI%20hechas%20con%20matriz/jDOi_SfSbu621h4FA67B-_c2c77ecb265f4a22bce3dd09b7b99544.jpg" alt="AI-generated work from organic matrix" class="cinema__image" data-reveal>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">generated · 08</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Transition: video intro -->
+    <section class="room room--breath room--breath-dark" id="works-video-intro" data-context="biomaterials">
+      <div class="breath__content">
+        <p class="breath__text heading-2" data-reveal data-i18n="video.intro.text">The system extends<br>beyond still images.</p>
+      </div>
+      <div class="breath__footer">
+        <span class="breath__label text-mono" data-i18n="video.intro.label">motion · generative</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Video 01 -->
+    <section class="room room--video-full" id="works-video-01" data-context="biomaterials" data-room-type="video">
+      <div class="video-full__media">
+        <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/0224slow.mp4" muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">motion · 01</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Video 02 -->
+    <section class="room room--video-full" id="works-video-02" data-context="biomaterials" data-room-type="video">
+      <div class="video-full__media">
+        <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/0220%20(1).mov" muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">motion · 02</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Video 03 -->
+    <section class="room room--video-full" id="works-video-03" data-context="biomaterials" data-room-type="video">
+      <div class="video-full__media">
+        <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/0220%20(2).mov" muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">motion · 03</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Video 04 -->
+    <section class="room room--video-full" id="works-video-04" data-context="biomaterials" data-room-type="video">
+      <div class="video-full__media">
+        <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/0220edit.mov" muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">motion · 04</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Video 05 (last) -->
+    <section class="room room--video-full" id="works-video-05" data-context="biomaterials" data-room-type="video">
+      <div class="video-full__media">
+        <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/Step%204..mov" muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="cinema__caption">
+        <span class="breath__label text-mono">motion · 05</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         ABSTRACT ART CONTEXT
+         Intro → Obras
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- Abstract intro -->
+    <section class="room room--text-intro" id="abstract-intro" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__content room__content--centered">
+        <span class="intro__label" data-reveal data-i18n="abs.label">Series 2022–2023</span>
+        <h2 class="intro__title" data-reveal data-i18n="abs.title">Abstract Collection</h2>
+        <div class="intro__text" data-reveal>
+          <div lang="en">
+            <p>In Abstract Art, form does not resolve, it registers. Each piece holds the trace of a process that cannot be fully contained, where matter becomes the site of tension between what is felt and what resists being named.</p>
+            <p>Texture operates as structure. Surfaces are built through layers that compress, erode, or endure, carrying different degrees of resistance, fragility, and permanence. What emerges is not an image, but a field where material and emotion negotiate their presence.</p>
+            <p>Each work unfolds as a fragment of an underlying continuity. Not as a narrative that can be read, but as something that accumulates, shifts, and reappears in different states. What changes is not only the surface, but the way it holds what has passed through it.</p>
+            <p>Across the series, the work moves between density and release, between what remains and what dissolves. The gesture insists, the material responds, and somewhere in between, a language forms that does not explain, but persists.</p>
+          </div>
+          <div lang="es">
+            <p>En Arte Abstracto, la forma no resuelve, registra. Cada pieza sostiene la huella de un proceso que no puede ser plenamente contenido, donde la materia se convierte en el sitio de tensión entre lo que se siente y lo que resiste ser nombrado.</p>
+            <p>La textura opera como estructura. Las superficies se construyen a través de capas que comprimen, erosionan o perduran, portando diferentes grados de resistencia, fragilidad y permanencia. Lo que emerge no es una imagen, sino un campo donde material y emoción negocian su presencia.</p>
+            <p>Cada obra se despliega como un fragmento de una continuidad subyacente. No como una narrativa que puede leerse, sino como algo que se acumula, desplaza y reaparece en diferentes estados. Lo que cambia no es solo la superficie, sino la manera en que sostiene lo que ha pasado a través de ella.</p>
+            <p>A lo largo de la serie, la obra se mueve entre densidad y liberación, entre lo que permanece y lo que se disuelve. El gesto insiste, el material responde, y en algún punto intermedio se forma un lenguaje que no explica, sino que persiste.</p>
+          </div>
+        </div>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </section>
+
+    <!-- 01 · PussyRose -->
+    <section class="room room--artwork" id="art-abstracta-01" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--square">
+        <img class="room__image" src="img/Arte abstracto acrilico/1_PussyRose_.png" alt="PussyRose — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">01</span>
+        <h2 class="room__title heading-2">PussyRose</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 60 x 140 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 02 · Baba Roja -->
+    <section class="room room--artwork" id="art-abstracta-02" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--square">
+        <img class="room__image" src="img/Arte abstracto acrilico/2_Baba Roja_ .png" alt="Baba Roja — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">02</span>
+        <h2 class="room__title heading-2">Baba Roja</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 170 x 100 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 03 · Fueguitos -->
+    <section class="room room--artwork" id="art-abstracta-03" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--square">
+        <img class="room__image" src="img/Arte abstracto acrilico/3 _Fueguitos_.png" alt="Fueguitos — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">03</span>
+        <h2 class="room__title heading-2">Fueguitos</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 200 x 120 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 04 · Grow -->
+    <section class="room room--artwork" id="art-abstracta-04" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--square">
+        <img class="room__image" src="img/Arte abstracto acrilico/4 _grow_.png" alt="Grow — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">04</span>
+        <h2 class="room__title heading-2">Grow</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 100 x 70 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 05 · Baba -->
+    <section class="room room--artwork" id="art-abstracta-05" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--square">
+        <img class="room__image" src="img/Arte abstracto acrilico/5 _baba_.png" alt="Baba — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">05</span>
+        <h2 class="room__title heading-2">Baba</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 170 x 100 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 06 · Apaciguamiento en calle Vidal -->
+    <section class="room room--artwork" id="art-abstracta-06" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--square">
+        <img class="room__image" src="img/Arte abstracto acrilico/6_Apaciguamiento en calle Vidal.png" alt="Apaciguamiento en calle Vidal — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">06</span>
+        <h2 class="room__title heading-2">Apaciguamiento en calle Vidal</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 120 x 84 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 07 · IDecided -->
+    <section class="room room--artwork" id="art-abstracta-07" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--landscape">
+        <img class="room__image" src="img/Arte abstracto acrilico/7_IDecided.png" alt="IDecided — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">07</span>
+        <h2 class="room__title heading-2">IDecided</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2024<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 100 x 70 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 08 · Mashrooms -->
+    <section class="room room--artwork" id="art-abstracta-08" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--square">
+        <img class="room__image" src="img/Arte abstracto acrilico/8_Mashrooms.png" alt="Mashrooms — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">08</span>
+        <h2 class="room__title heading-2">Mashrooms</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 180 x 180 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 09 · Cientotrece 113 -->
+    <section class="room room--artwork" id="art-abstracta-09" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--square">
+        <img class="room__image" src="img/Arte abstracto acrilico/9_cientotrece113.jpeg" alt="Cientotrece 113 — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">09</span>
+        <h2 class="room__title heading-2">Cientotrece 113</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 140 x 110 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- 10 · Oro -->
+    <section class="room room--artwork" id="art-abstracta-10" data-context="abstract">
+      <span class="room__section-label text-mono">Abstract Art</span>
+      <div class="room__media room__media--landscape">
+        <img class="room__image" src="img/Arte abstracto acrilico/Oro (1).png" alt="Oro — Técnica mixta, arte abstracto" loading="lazy">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">10</span>
+        <h2 class="room__title heading-2">Oro</h2>
+        <p class="room__details text-caption" data-i18n="abs.details">Mixed media · Acrylic</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 200 x 120 cm</p>
+        <p class="room__description text-body"></p>
+        <span class="room__category text-mono" data-i18n="abs.category">Abstract painting</span>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         PLATASÍ CONTEXT
+         Intro → Obras
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- Platasí intro -->
+    <section class="room room--text-intro" id="platasi-intro" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__content room__content--centered">
+        <span class="intro__label" data-reveal data-i18n="platasi.label">Series 2023–2024</span>
+        <h2 class="intro__title" data-reveal>Plata Sí</h2>
+        <div class="intro__text" data-reveal>
+          <div lang="en">
+            <p>In Plata Sí, form returns as an insistent gesture, never identical. Each iteration subtly shifts its meaning, as if the image resists fixation and requires rearticulation across surfaces.</p>
+            <p>The banana, and its mutations, operate as an available body: a site where tensions between desire, value, and exposure are inscribed. What initially appears as a recognizable image quickly slips into something else. There is always something that holds, and something that yields, opens, or deforms.</p>
+            <p>The painting oscillates between technical control and a certain rawness in its subject matter. Within that friction, a quiet but persistent unease emerges. The polished does not suppress the visceral; it amplifies it. The surface does not conceal, but intensifies.</p>
+            <p>Throughout the series, the image accumulates states: radiance, fracture, decay, excess, containment. Not as fixed categories, but as layers that overlap and seep into one another. Each work holds a moment, while also revealing what precedes it and what propels it forward.</p>
+            <p>What circulates is not only form, but a transforming energy. Between repetition and variation, the series constructs a field where the intimate and the visible are continuously negotiated, never fully resolved.</p>
+          </div>
+          <div lang="es">
+            <p>En Plata Sí, la forma regresa como un gesto insistente, nunca idéntico. Cada iteración desplaza sutilmente su sentido, como si la imagen resistiera la fijación y requiriera ser rearticulada a través de las superficies.</p>
+            <p>La banana, y sus mutaciones, operan como un cuerpo disponible: un sitio donde se inscriben tensiones entre deseo, valor y exposición. Lo que inicialmente parece una imagen reconocible rápidamente se desliza hacia otra cosa. Siempre hay algo que sostiene, y algo que cede, se abre o se deforma.</p>
+            <p>La pintura oscila entre el control técnico y cierta crudeza en su temática. En esa fricción emerge una inquietud callada pero persistente. Lo pulido no suprime lo visceral; lo amplifica. La superficie no oculta, sino que intensifica.</p>
+            <p>A lo largo de la serie, la imagen acumula estados: resplandor, fractura, deterioro, exceso, contención. No como categorías fijas, sino como capas que se superponen y se filtran unas en otras. Cada obra sostiene un momento, al tiempo que revela lo que la precede y lo que la impulsa hacia adelante.</p>
+            <p>Lo que circula no es solo forma, sino una energía en transformación. Entre repetición y variación, la serie construye un campo donde lo íntimo y lo visible se negocian continuamente, sin resolverse del todo.</p>
+          </div>
+        </div>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </section>
+
+    <!-- Platasí I -->
+    <!-- Plátano I -->
+    <section class="room room--artwork" id="art-platasi-01" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__media">
+        <img src="img/Platasi/1-Platano I.png" alt="Plátano I" class="room__image">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">01</span>
+        <h2 class="room__title heading-2">Plátano I</h2>
+        <p class="room__details text-caption" data-i18n="pla.sub.01">Surface as threshold</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 100 x 70 cm</p>
+        <p class="room__description text-body" data-i18n="pla.desc.01">The surface seduces, but it is not enough. Something breaks outside any organic logic, revealing an interior that unsettles the idea of value. What is attractive persists, even as it begins to collapse.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Plátano II -->
+    <section class="room room--artwork" id="art-platasi-02" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__media">
+        <img src="img/Platasi/2-Platano II.JPEG" alt="Plátano II" class="room__image">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">02</span>
+        <h2 class="room__title heading-2">Plátano II</h2>
+        <p class="room__details text-caption" data-i18n="pla.sub.02">Immediate celebration</p>
+        <p class="room__ficha text-mono">AÑO: 2023<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 60 x 50 cm</p>
+        <p class="room__description text-body" data-i18n="pla.desc.02">The image surrenders to the brightness of the moment. Everything expands toward enjoyment, yet its own condition suggests fragility. What radiates does not seek to last, only to intensify before fading.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Plátano III -->
+    <section class="room room--artwork" id="art-platasi-03" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__media">
+        <img src="img/Platasi/3-Platano III.jpg" alt="Plátano III" class="room__image">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">03</span>
+        <h2 class="room__title heading-2">Plátano III</h2>
+        <p class="room__details text-caption" data-i18n="pla.sub.03">A rehearsal of care</p>
+        <p class="room__ficha text-mono">AÑO: 2024<br>TÉCNICA: ÓLEO SOBRE TELA<br>MEDIDAS: 60 x 60 cm</p>
+        <p class="room__description text-body" data-i18n="pla.desc.03">A structure emerges in an attempt to organize. The form seeks support from something external, as if it needed guidance to sustain itself. There is a forced tenderness, a balance that has not yet become internal.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Plátano IV -->
+    <section class="room room--artwork" id="art-platasi-04" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__media">
+        <img src="img/Platasi/4-Platano IV.jpg" alt="Plátano IV" class="room__image">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">04</span>
+        <h2 class="room__title heading-2">Plátano IV</h2>
+        <p class="room__details text-caption" data-i18n="pla.sub.04">Force as structure</p>
+        <p class="room__ficha text-mono">AÑO: 2024<br>TÉCNICA: ÓLEO SOBRE TELA<br>MEDIDAS: 60 x 60 cm</p>
+        <p class="room__description text-body" data-i18n="pla.desc.04">Containment becomes more rigid. The form asserts itself through pressure, leaving a trace behind. It is no longer about care, but direction, a force that organizes while simultaneously constraining.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Plátano V -->
+    <section class="room room--artwork" id="art-platasi-05" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__media">
+        <img src="img/Platasi/5-Platano V.jpg" alt="Plátano V" class="room__image">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">05</span>
+        <h2 class="room__title heading-2">Plátano V</h2>
+        <p class="room__details text-caption" data-i18n="pla.sub.05">Desire without restraint</p>
+        <p class="room__ficha text-mono">AÑO: 2024<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 60 x 60 cm</p>
+        <p class="room__description text-body" data-i18n="pla.desc.05">The image opens into a logic of excess. Everything becomes available, visible, exchangeable. Pleasure unfolds without mediation, within a space where intensity blurs the line between desire and consumption.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Plátano VI -->
+    <section class="room room--artwork" id="art-platasi-06" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__media">
+        <img src="img/Platasi/6-Platano VI.png" alt="Plátano VI" class="room__image">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">06</span>
+        <h2 class="room__title heading-2">Plátano VI</h2>
+        <p class="room__details text-caption" data-i18n="pla.sub.06">Style as assertion</p>
+        <p class="room__ficha text-mono">AÑO: 2024<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 100 x 80 cm</p>
+        <p class="room__description text-body" data-i18n="pla.desc.06">The form becomes a statement. What once remained implicit now appears with clarity and speed. There is a will to reveal without hesitation, where the process itself becomes surface.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Plátano VII -->
+    <section class="room room--artwork" id="art-platasi-07" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__media">
+        <img src="img/Platasi/7-Platano VII.jpg" alt="Plátano VII" class="room__image">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">07</span>
+        <h2 class="room__title heading-2">Plátano VII</h2>
+        <p class="room__details text-caption" data-i18n="pla.sub.07">Persistence in decline</p>
+        <p class="room__ficha text-mono">AÑO: 2024<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 80 x 60 cm</p>
+        <p class="room__description text-body" data-i18n="pla.desc.07">The image moves through its own deterioration. What remains is not absence, but another form of presence. Between abandonment and residual shine, the material continues to speak, even when it no longer conforms.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Plátano VIII -->
+    <section class="room room--artwork" id="art-platasi-08" data-context="platasi">
+      <span class="room__section-label text-mono">Platasí</span>
+      <div class="room__media">
+        <img src="img/Platasi/8-Platano VIII.jpg" alt="Plátano VIII" class="room__image">
+      </div>
+      <div class="room__text">
+        <span class="room__number text-mono">08</span>
+        <h2 class="room__title heading-2">Plátano VIII</h2>
+        <p class="room__details text-caption" data-i18n="pla.sub.08">The elegance of excess</p>
+        <p class="room__ficha text-mono">AÑO: 2024<br>TÉCNICA: MIXTA SOBRE LIENZO<br>MEDIDAS: 100 x 90 cm</p>
+        <p class="room__description text-body" data-i18n="pla.desc.08">The form reaches an unstable synthesis. Provocation and control, beauty and solitude coexist. What is presented does not resolve, it remains suspended in its own intensity.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         ARTISTA CONTEXT
+         Statement → Sobre mí → Contacto
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- Statement -->
+    <section class="room room--statement" id="statement" data-context="artista">
+      <span class="room__section-label text-mono">Artista</span>
+      <div class="room__content room__content--centered">
+        <blockquote class="statement__text" data-reveal data-i18n="stmt.quote">My practice stems from a desire to transform experience into visual form. I work with painting — in both its hyperrealist and abstract modes — to explore how the body and feminine identity are configured as terrain for resistance, visibility, and transformation.</blockquote>
+        <p class="statement__small text-body" data-reveal data-i18n="stmt.p2" style="margin-top: var(--space-md); max-width: 52ch; opacity: 0.7;">I propose an attentive contemplation, where what usually remains hidden emerges as a trace, as visual language. I believe art can operate in both institutional contexts and in settings that privilege accessibility.</p>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </section>
+
+    <!-- About -->
+    <section class="room room--about" id="about" data-context="artista">
+      <span class="room__section-label text-mono">Artista</span>
+      <div class="room__split">
+        <div class="room__split-text">
+          <h3 class="text-caption" data-reveal data-i18n="about.title">About Me</h3>
+          <p data-reveal data-i18n="about.p1">Brenda Cisnero, born in Villa Gesell, is an independent visual artist with a degree in Arts. Her practice centers on hyperrealist and abstract painting, exploring the body, feminine identity, and transformation through a critical and contemporary gaze.</p>
+          <p data-reveal data-i18n="about.p2">She is currently in the United States, in a process of creative expansion that includes her studies at Stanford University. From there, she deepens new tools and perspectives that enrich her practice and way of conceiving art.</p>
+          <p data-reveal data-i18n="about.p3">With over a decade of teaching experience and work in museum spaces, Brenda consolidated her exclusive dedication to visual arts in 2024. She is the founder of Juana Perfecta, a project that integrates aesthetic sensitivity and creative vision to broaden access to contemporary art.</p>
+          <div class="about__skills" data-reveal>
+            <span class="about__skill-tag" data-i18n="skill.painting">Painting</span>
+            <span class="about__skill-tag" data-i18n="skill.sculpture">Sculpture</span>
+            <span class="about__skill-tag" data-i18n="skill.digital">Digital Art</span>
+            <span class="about__skill-tag" data-i18n="skill.bio">Biomaterials</span>
+            <span class="about__skill-tag" data-i18n="skill.ai">AI Generative</span>
+            <span class="about__skill-tag">Videoperformance</span>
+            <span class="about__skill-tag" data-i18n="skill.install">Installation</span>
+          </div>
+        </div>
+        <div class="room__split-media">
+          <img src="img/bio/brenda.jpg" alt="Brenda Cisnero en Stanford University">
+        </div>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Contacto (last in artista — no next button) -->
+    <section class="room room--contact" id="contact" data-context="artista">
+      <span class="room__section-label text-mono">Artista</span>
+      <div class="room__split">
+        <div class="room__split-text">
+          <div class="contact__info" data-reveal>
+            <div class="contact__info-item">
+              <div class="contact__info-label">Email</div>
+              <div class="contact__info-value"><a href="mailto:juanaperfectacisnero@gmail.com">juanaperfectacisnero@gmail.com</a></div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-label">WhatsApp</div>
+              <div class="contact__info-value"><a href="https://wa.link/yh05yd" target="_blank" rel="noopener" data-i18n="contact.whatsapp">Send message</a></div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-label" data-i18n="contact.phone.us">Phone USA</div>
+              <div class="contact__info-value"><a href="tel:+16504447196">+1 (650) 444-7196</a></div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-label" data-i18n="contact.phone.ar">Phone Argentina</div>
+              <div class="contact__info-value"><a href="tel:+5491130509450">+54 9 11 3050-9450</a></div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-label">Instagram</div>
+              <div class="contact__info-value"><a href="https://www.instagram.com/juanaperfecta/" target="_blank" rel="noopener">@juanaperfecta</a></div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-label">LinkedIn</div>
+              <div class="contact__info-value"><a href="https://www.linkedin.com/in/brenda-cisnero/?locale=es_ES" target="_blank" rel="noopener">Brenda Cisnero</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="room__split-form">
+          <form class="contact__form" data-reveal action="#" method="POST">
+            <div class="form-field">
+              <label for="name" data-i18n="form.name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+              <label for="message" data-i18n="form.message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="mag-btn" data-i18n="form.submit">Send message</button>
+          </form>
+        </div>
+      </div>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- ═══ PROGRESS BAR ═══ -->
+  <div class="progress-bar" aria-hidden="true">
+    <div class="progress-bar__fill" id="progress-fill"></div>
+  </div>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script src="js/state.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/pigment.js"></script>
+  <script src="js/magnetic.js"></script>
+  <script src="js/tilt.js"></script>
+  <script src="js/words.js"></script>
+  <script src="js/words-bio.js"></script>
+  <script src="js/parallax-hero.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/image-processor.js"></script>
+
+</body>
+</html>
