@@ -65,39 +65,51 @@ Cada sección del sitio debe transmitir esta historia sin contarla explícitamen
 
 ---
 
-## 2. BIO (texto original — no modificar)
+## 2. BIO (texto actualizado — 11 mayo 2026)
 
 **EN —**
-Brenda Cisnero, born in Villa Gesell, is an independent visual artist and Bachelor of Arts. Her practice focuses on hyperrealistic and abstract painting, exploring the body, feminine identity, and transformation through a critical and contemporary lens.
+Juana Perfecta is the artistic name of Brenda Cisnero, a visual artist born in Villa Gesell, Buenos Aires, Argentina. She holds a Bachelor of Fine Arts and a Bachelor of Arts in Visual Arts Education, and is a Stanford Ignite alumni (GSB). She lives and works in the San Francisco Bay Area, California.
 
-She is currently in the United States, in a process of creative expansion that includes her training at Stanford University. From there, she deepens new tools and perspectives that enrich her practice and way of conceiving art.
+Her practice centers on texture as language, the surface understood as an archive of memory, pressure, and time. Working across hyperrealism, abstraction, and biodegradable materials, she studies how matter behaves under different conditions: how it erodes, holds, mutates, and persists. A custom AI semantic system she trains on interior states rather than formal descriptors extends this inquiry into the digital realm, generating images and videos from a learned vocabulary of lived experience.
 
-With over a decade of teaching experience and work in museum spaces, Brenda consolidated her exclusive dedication to visual arts in 2024. She is the founder of Juana Perfecta and La Factoría by Juana Perfecta, projects that integrate aesthetic sensitivity and creative vision to expand access to contemporary art.
+Textures of Becoming was first presented at Stanford and has since circulated through exhibitions and interdisciplinary art spaces across California.
 
 **ES —**
-Brenda Cisnero, nacida en Villa Gesell, es artista visual independiente y licenciada en Artes. Su práctica se centra en la pintura hiperrealista y abstracta, explorando el cuerpo, la identidad femenina y la transformación a través de una mirada crítica y contemporánea.
+Juana Perfecta es el nombre artístico de Brenda Cisnero, artista visual nacida en Villa Gesell, Buenos Aires, Argentina. Posee una Licenciatura en Bellas Artes y una Licenciatura en Artes Visuales con orientación en Educación Artística, y es alumni de Stanford Ignite (GSB). Vive y trabaja en el área de la Bahía de San Francisco, California.
 
-Actualmente se encuentra en Estados Unidos, en un proceso de expansión creativa que incluye su formación en Stanford University. Desde allí, profundiza en nuevas herramientas y perspectivas que enriquecen su práctica y su modo de concebir el arte.
+Su práctica se centra en la textura como lenguaje, la superficie entendida como un archivo de memoria, presión y tiempo. Trabajando a través del hiperrealismo, la abstracción y materiales biodegradables, estudia cómo se comporta la materia bajo diferentes condiciones: cómo se erosiona, sostiene, muta y persiste. Un sistema semántico de IA personalizado que entrena en estados interiores en lugar de descriptores formales extiende esta investigación al ámbito digital, generando imágenes y videos a partir de un vocabulario aprendido de experiencia vivida.
 
-Con más de una década de experiencia docente y trabajo en espacios museísticos, Brenda consolidó su dedicación exclusiva a las artes visuales en 2024. Es fundadora de Juana Perfecta y La Factoría by Juana Perfecta, proyectos que integran sensibilidad estética y visión creativa para ampliar el acceso al arte contemporáneo.
+Texturas del Devenir fue presentado por primera vez en Stanford y desde entonces ha circulado a través de exposiciones y espacios de arte interdisciplinarios en toda California.
 
 ---
 
-## 3. ARTIST STATEMENT (texto original — no modificar)
+## 3. ARTIST STATEMENT (texto actualizado — 11 mayo 2026)
 
 **EN —**
-My practice stems from a will to transform experience into visual form. I work with painting—in its hyperrealistic and abstract modes—to explore how the body and feminine identity are configured as terrain of resistance, visibility, and transformation. I use surface, matter, and form as vectors to investigate how bodily presence is inscribed in the pictorial frame, and how that inscription puts tension on the boundary between representation and matter.
+I work from texture as record: of what has been touched, compressed, exposed, and altered. What first drew me to texture was precisely what it resists: control. The surface never fully obeys intention. It bends, accumulates, erodes, and reorganizes itself beyond prediction. Across different bodies of work, I return to the same question: what does matter retain, and what does it relinquish?
 
-The process is structured in iterative circuits: I start with an emotional trigger, develop sketches, conduct technical tests and records, and finally establish the work in its definitive format. Recently I have incorporated artificial intelligence as a dialogue tool: I generate images that dialogue with my style, translate them into pictorial format, and then reintegrate the results into the starting system, so that the procedure itself becomes part of the investigation.
+My works operate as material analogies for lived stages and survival. Not narrated directly, but built through layers, pressure, density, fracture, and exposure.
 
-Conceptually, my work addresses the construction of identity when it has been determined by adversity, and focuses on the ability to transform those marks into creative act. I propose attentive contemplation, where what usually remains hidden emerges as trace, as visual language. I believe that art can operate both in institutional contexts and in scenarios that privilege accessibility, exploring a link between aesthetic sensitivity and functionality.
+In plataSÍ, I approached surface through hyperrealist precision, using technical control to heighten tensions around desire, vulnerability, and display. In Texturas de la Estructura, the image began to dissolve into accumulation, gesture, erosion, and repetition. Texture stopped functioning as detail and became the structure of the work itself.
+
+That path arrives at its current form in Textures of Becoming. Working with biodegradable and plant-based materials, I collect, observe, scan, and transform organic matrices as they mutate over time. These materials move across physical and generative states: preserved as matter, translated into archival prints, and extended into AI-generated video.
+
+The AI system is not used to reproduce images or illustrate ideas. I trained a custom semantic model on the scanned materials themselves, linking interior states and emotional vocabularies to specific visual behaviors within the matter. When generating, I work through condition rather than instruction, allowing the system to interpret, drift, and misread.
+
+Across all three series, the work remains centered on the same inquiry: how surfaces register memory, tension, transformation, and persistence.
 
 **ES —**
-Mi práctica parte de una voluntad de transformar experiencia en forma visual. Trabajo con pintura —en sus modos hiperrealista y abstracto— para explorar cómo el cuerpo y la identidad femenina se configuran como terreno de resistencia, visibilidad y transformación. Utilizo superficie, materia y forma como vectores para investigar cómo la presencia corporal se inscribe en el cuadro pictórico, y cómo esa inscripción tensiona el límite entre representación y materia.
+Trabajo a partir de la textura como registro: de lo que ha sido tocado, comprimido, expuesto y alterado. Lo que primero me atrajo de la textura fue precisamente lo que resiste: el control. La superficie nunca obedece completamente la intención. Se dobla, acumula, erosiona y se reorganiza más allá de la predicción. A través de diferentes cuerpos de trabajo, regreso a la misma pregunta: ¿qué retiene la materia y qué renuncia?
 
-El proceso se estructura en circuitos iterativos: parto de un disparador emocional, desarrollo bocetos, realizo pruebas técnicas y registros, y finalmente establezco la obra en su formato definitivo. Recientemente incorporé la inteligencia artificial como herramienta de diálogo: genero imágenes que dialogan con mi estilo, las traduzco a formato pictórico y luego reintegro los resultados al sistema de partida, de modo que el procedimiento mismo se vuelve parte de la investigación.
+Mis obras operan como analogías materiales de etapas vividas y supervivencia. No narradas directamente, sino construidas a través de capas, presión, densidad, fractura y exposición.
 
-Conceptualmente, mi obra aborda la construcción de identidad cuando ha sido determinada por la adversidad, y se enfoca en la capacidad de transformar esas marcas en acto creativo. Propongo una contemplación atenta, donde lo que usualmente permanece oculto emerge como huella, como lenguaje visual. Creo que el arte puede operar tanto en contextos institucionales como en escenarios que privilegian la accesibilidad, explorando un vínculo entre sensibilidad estética y funcionalidad.
+En plataSÍ, abordé la superficie a través de la precisión hiperrealista, usando control técnico para intensificar tensiones en torno al deseo, la vulnerabilidad y la exhibición. En Texturas de la Estructura, la imagen comenzó a disolverse en acumulación, gesto, erosión y repetición. La textura dejó de funcionar como detalle y se convirtió en la estructura de la obra misma.
+
+Ese camino llega a su forma actual en Texturas del Devenir. Trabajando con materiales biodegradables y de origen vegetal, recopilo, observo, escaneo y transformo matrices orgánicas mientras mutan con el tiempo. Estos materiales se mueven a través de estados físicos y generativos: preservados como materia, traducidos en impresiones de archivo y extendidos en video generado por IA.
+
+El sistema de IA no se usa para reproducir imágenes o ilustrar ideas. Entrené un modelo semántico personalizado en los propios materiales escaneados, vinculando estados interiores y vocabularios emocionales a comportamientos visuales específicos dentro de la materia. Al generar, trabajo a través de la condición en lugar de la instrucción, permitiendo que el sistema interprete, derive y malinterprete.
+
+A través de las tres series, el trabajo se centra en la misma investigación: cómo las superficies registran memoria, tensión, transformación y persistencia.
 
 ---
 
@@ -111,9 +123,9 @@ Conceptualmente, mi obra aborda la construcción de identidad cuando ha sido det
 - Lente crítica y contemporánea
 - Proceso iterativo: trigger emocional → bocetos → pruebas técnicas → obra definitiva
 - Formatos: obras de gran escala (170×100cm) y medianos (100×70cm, 60×140cm)
-- Series identificadas en carpeta "Arte abstracto acrílico": Platasí (hiperrealismo de chiles/ajíes), PussyRose (abstracto carmesí), Baba Roja, Fueguitos, Oro Negro, Apaciguamiento en calle Vidal, Grow
+- Series identificadas en carpeta "Arte abstracto acrílico": Platasí (hiperrealismo de chiles/ajíes), Texturas de la Estructura (técnica mixta 2022–2023), que incluye PussyRose (carmesí), Baba Roja, Fueguitos, Oro Negro, Apaciguamiento en calle Vidal, Grow
 
-### Línea 2 — Materiales orgánicos escaneados ("Matrices")
+### Línea 2 — Materiales orgánicos escaneados ("Texturas de la Estructura")
 - Crea formas con materiales biodegradables/orgánicos que luego escanea en alta resolución
 - El escaneo en sí es parte constitutiva de la obra — la textura digital resultante ES la obra
 - Cada escaneo es una "matriz" — como en el grabado, pero irrepetible. Cada pieza existe una sola vez, entre lo orgánico y lo digital
@@ -181,7 +193,7 @@ Cuatro efectos a implementar (especificación técnica completa en Sección 8):
 
 **Proyectos para la lista numerada (sección 2):**
 1. Platasí — Técnica mixta · 2023–2024
-2. Colección Abstracta — Técnica mixta · 2022–2023
+2. Texturas de la Estructura — Técnica mixta · 2022–2023
 3. Matrices Orgánicas — Biomateriales · 2025
 4. IA Generativa — Sora · 2025
 
@@ -304,7 +316,8 @@ Solicitar por sección en este orden. No avanzar sin tener las imágenes de la s
 | E | Statement, About, Proceso, Contacto | COMPLETADO |
 | F | Responsividad mobile + optimización final | COMPLETADO |
 
-**Estado actual:** Sitio completo construido. Código en `/Users/brendacisnero/Downloads/Juana Perfecta/`. Pendiente: aplicar modificaciones solicitadas por la artista.
+**Estado actual:** Sitio completo construido y actualizado. Código en `/Users/brendacisnero/Downloads/Juana Perfecta/`. 
+- Actualizado 11 mayo 2026: BIO y ARTIST STATEMENT revisados; "Abstract Art" → "Texturas de la Estructura"; eliminados skill tags innecesarios.
 
 ---
 
@@ -382,4 +395,4 @@ Brenda desafía la noción de que el prestigio de un artista se correlaciona con
 
 *Documento de contexto — Proyecto web Juana Perfecta*
 *Brenda Cisnero · juanaperfectacisnero@gmail.com · @juanaperfecta*
-*Generado: Marzo 2026 — Actualizado: 13 marzo 2026*
+*Generado: Marzo 2026 — Última actualización: 11 mayo 2026*
