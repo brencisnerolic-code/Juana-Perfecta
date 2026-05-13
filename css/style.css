@@ -2004,21 +2004,6 @@ body.room-is-dark .sound-toggle {
   display: block;
 }
 
-/* Mobile/tablet: matrices are 16:9, viewport is vertical →
-   contain to show the whole piece, with the site's dark tone
-   so the framing reads as a single uniform field. */
-@media (max-width: 1024px) {
-  .room--fullimg {
-    background-color: var(--bg-dark);
-  }
-  .fullimg__image {
-    object-fit: contain;
-  }
-  .room--fullimg .cinema__caption .breath__label {
-    color: rgba(232, 224, 212, 0.7);
-  }
-}
-
 /* ── Video full rooms ────────────────────────────────────── */
 .room--video-full {
   background-color: var(--bg);
