@@ -1995,6 +1995,9 @@ body.room-is-dark .sound-toggle {
   background-color: var(--bg);
   overflow: hidden;
 }
+.room--fullimg picture {
+  display: contents;
+}
 .fullimg__image {
   position: absolute;
   inset: 0;
