@@ -12,6 +12,56 @@
   function initVideoAutoplay() {
     if (!window.RoomState) return;
 
+    function attemptPlay(video) {
+      if (!video) return;
+      // Ensure flags required for inline autoplay (especially iOS)
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+
+      // Force load if the video hasn't been fetched yet
+      if (video.readyState < 2) {
+        try { video.load(); } catch (e) {}
+      }
+
+      var tryPlay = function () {
+        var p = video.play();
+        if (p && typeof p.then === 'function') {
+          p.catch(function () { /* blocked: will retry on next interaction */ });
+        }
+      };
+
+      if (video.readyState >= 2) {
+        tryPlay();
+      } else {
+        var onReady = function () {
+          video.removeEventListener('loadeddata', onReady);
+          video.removeEventListener('canplay', onReady);
+          tryPlay();
+        };
+        video.addEventListener('loadeddata', onReady, { once: true });
+        video.addEventListener('canplay', onReady, { once: true });
+        // Fallback: try anyway after a short delay
+        setTimeout(tryPlay, 400);
+      }
+    }
+
+    // Retry pending plays on first user interaction (covers autoplay-blocked browsers)
+    var unlocked = false;
+    function unlock() {
+      if (unlocked) return;
+      unlocked = true;
+      var st = window.RoomState.makeState ? window.RoomState.makeState() : null;
+      if (st && st.room) {
+        var v = st.room.querySelector('.room__video');
+        if (v) attemptPlay(v);
+      }
+    }
+    ['pointerdown', 'touchstart', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, unlock, { once: true, passive: true });
+    });
+
     window.RoomState.onChange(function (newState, oldState) {
       // Pause video in old room
       if (oldState && oldState.room) {
@@ -23,11 +73,7 @@
       if (newState && newState.room) {
         var newVideo = newState.room.querySelector('.room__video');
         if (newVideo) {
-          setTimeout(function () {
-            newVideo.play().catch(function () {
-              // Autoplay blocked — user hasn't interacted yet
-            });
-          }, 300);
+          setTimeout(function () { attemptPlay(newVideo); }, 150);
         }
       }
     });
