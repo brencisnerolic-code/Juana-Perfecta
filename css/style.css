@@ -2068,35 +2068,33 @@ body.room-is-dark .sound-toggle {
 }
 
 .section-jump {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.13em;
+  font-family: "DM Sans", sans-serif;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text);
-  background: rgba(232, 224, 212, 0.85);
-  border: 1px solid rgba(26, 23, 20, 0.15);
-  border-radius: 2px;
+  color: var(--muted);
+  background: none;
+  border: none;
   cursor: pointer;
-  padding: 0.75em 1.1em;
-  min-height: 40px;
+  padding: 0.6em 0;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.35s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  transition: opacity 0.35s ease, color 0.2s ease;
   transform: translateY(4px);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
 }
 
 .section-jump.is-visible {
-  opacity: 1;
+  opacity: 0.6;
   pointer-events: auto;
   transform: translateY(0);
 }
 
 .section-jump:hover {
+  opacity: 1;
   color: var(--accent);
-  border-color: var(--accent);
-  background: rgba(232, 224, 212, 0.95);
 }
 
 /* ── Global scroll (up/down) ─────────────────────────────── */
