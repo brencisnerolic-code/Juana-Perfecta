@@ -10,8 +10,8 @@
 
   // ── Configuration ───────────────────────────────────────────
   var WHEEL_COOLDOWN = 800;
-  var SWIPE_THRESHOLD = 55;   // slightly higher for better accuracy
-  var SWIPE_MAX_TIME  = 500;  // more time allowed for deliberate swipes
+  var SWIPE_THRESHOLD = 80;   // higher threshold prevents accidental navigation
+  var SWIPE_MAX_TIME  = 400;  // tighter time window for deliberate swipes
 
   // ── State ───────────────────────────────────────────────────
   var lastWheelTime     = 0;
@@ -50,6 +50,16 @@
 
   // ── Wheel Navigation ───────────────────────────────────────
   function handleWheel(e) {
+    // If cursor is over a scrollable panel that can still scroll, let it scroll
+    var scrollableEl = getScrollableAncestor(e.target);
+    if (scrollableEl) {
+      var canScrollDown = scrollableEl.scrollTop + scrollableEl.clientHeight < scrollableEl.scrollHeight - 1;
+      var canScrollUp = scrollableEl.scrollTop > 0;
+      if ((e.deltaY > 0 && canScrollDown) || (e.deltaY < 0 && canScrollUp)) {
+        return; // allow native scroll
+      }
+    }
+
     e.preventDefault();
 
     var now = Date.now();
@@ -70,6 +80,24 @@
     } else {
       window.RoomState.prev();
     }
+  }
+
+  // Returns the nearest scrollable ancestor that has overflow content
+  function getScrollableAncestor(el) {
+    var node = el;
+    while (node && node !== document.body) {
+      if (node.classList) {
+        for (var i = 0; i < SCROLLABLE_CLASSES.length; i++) {
+          if (node.classList.contains(SCROLLABLE_CLASSES[i])) {
+            if (node.scrollHeight > node.clientHeight + 1) {
+              return node;
+            }
+          }
+        }
+      }
+      node = node.parentElement;
+    }
+    return null;
   }
 
   // ── Keyboard Navigation ───────────────────────────────────
@@ -135,7 +163,10 @@
 
     if (dt > SWIPE_MAX_TIME) return;
     if (Math.abs(dy) < SWIPE_THRESHOLD) return;
-    if (Math.abs(dx) > Math.abs(dy)) return; // horizontal swipe → ignore
+    if (Math.abs(dx) > Math.abs(dy) * 1.2) return; // mostly vertical swipe required
+    // Require minimum velocity to qualify as intentional swipe
+    var velocity = Math.abs(dy) / dt;
+    if (velocity < 0.3) return;
 
     var curId = window.RoomState.getCurrentRoomId();
 

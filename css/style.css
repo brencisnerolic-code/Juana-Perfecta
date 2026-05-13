@@ -1044,24 +1044,19 @@ html[lang="es"] [lang="en"] { display: none !important; }
 }
 
 .statement__text {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.4rem, 2.8vw, 2.6rem);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.4;
+  font-family: "DM Sans", sans-serif;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.65;
+  color: var(--muted);
   border: none;
   padding: 0;
   margin: 0;
 }
 
-.statement__text::before {
-  content: "\201C";
-  display: block;
-  font-size: 4em;
-  line-height: 0.5;
-  color: var(--accent);
-  opacity: 0.3;
-  margin-bottom: var(--space-sm);
+.statement__text p {
+  margin-bottom: 1em;
 }
 
 .statement__small {
@@ -1492,11 +1487,19 @@ body.room-is-dark .sound-toggle {
   .room__media {
     flex: 0 0 auto;
     width: 100%;
-    height: 56vh;
-    padding: var(--space-xs);
+    height: 52vh;
+    padding: calc(var(--space-xs) + 3.5rem) var(--space-xs) var(--space-xs);
+    box-sizing: border-box;
   }
   .room__image {
-    max-height: calc(56vh - var(--space-xs) * 2);
+    max-height: calc(52vh - var(--space-xs) * 2 - 3.5rem);
+    object-fit: contain;
+  }
+  .room__media--square .room__image,
+  .room__media--portrait .room__image,
+  .room__media--landscape .room__image {
+    max-height: calc(52vh - var(--space-xs) * 2 - 3.5rem);
+    object-fit: contain;
   }
   .room__text {
     flex: 1;
@@ -1698,10 +1701,19 @@ body.room-is-dark .sound-toggle {
 @media (max-width: 480px) {
   .room__media {
     height: 48vh;
-    padding: var(--space-xs);
+    padding: calc(var(--space-xs) + 3rem) var(--space-xs) var(--space-xs);
+    box-sizing: border-box;
   }
   .room__image {
-    max-height: calc(48vh - var(--space-xs) * 2);
+    max-height: calc(48vh - var(--space-xs) * 2 - 3rem);
+  }
+  .room__media--square .room__image,
+  .room__media--portrait .room__image,
+  .room__media--landscape .room__image {
+    max-height: calc(48vh - var(--space-xs) * 2 - 3rem);
+  }
+  .fullimg__image {
+    padding: clamp(3rem, 7vh, 4rem) 0.4rem clamp(3.5rem, 8vh, 4.5rem);
   }
   .room__text {
     padding: var(--space-xs) var(--gutter) calc(var(--space-xs) + 56px);
@@ -1710,7 +1722,7 @@ body.room-is-dark .sound-toggle {
     font-size: clamp(1.15rem, 5vw, 1.6rem);
   }
   .statement__text {
-    font-size: clamp(1.1rem, 5vw, 1.5rem);
+    font-size: var(--fs-body);
   }
   .hub__card {
     height: 32vh;
@@ -1980,9 +1992,11 @@ body.room-is-dark .sound-toggle {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
+  padding: clamp(3.5rem, 8vh, 5rem) clamp(0.5rem, 2vw, 1.5rem) clamp(4rem, 9vh, 5rem);
+  box-sizing: border-box;
 }
 
 /* ── Video full rooms ────────────────────────────────────── */

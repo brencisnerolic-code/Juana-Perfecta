@@ -93,18 +93,14 @@
         first: 'process-matriz-01',
         rooms: ['process-intro','process-matriz-01','process-matriz-02','process-matriz-03',
                 'process-matriz-04','process-matriz-05','process-matriz-06','process-matriz-07',
-                'process-matriz-08','process-matriz-09','process-matriz-10','process-matriz-12']
+                'process-matriz-08','process-matriz-09','process-matriz-10','process-matriz-11',
+                'process-matriz-12','process-matriz-13','process-matriz-14','process-matriz-15',
+                'process-matriz-16','process-matriz-17']
       },
       {
-        name: 'generated',
-        first: 'works-img-04',
-        rooms: ['works-img-04','works-img-02','works-img-05','works-img-06',
-                'works-img-08','works-img-09','works-img-10','works-img-07']
-      },
-      {
-        name: 'motion',
-        first: 'works-video-01',
-        rooms: ['works-video-intro','works-video-01','works-video-02',
+        name: 'videos',
+        first: 'works-video-constellations',
+        rooms: ['works-video-intro','works-video-constellations','works-video-01','works-video-02',
                 'works-video-03','works-video-04','works-video-05']
       }
     ];
@@ -133,7 +129,7 @@
       if (idx > 0) {
         var ps = SECTIONS[idx - 1];
         var psLang = window.I18n ? window.I18n.getLang() : 'en';
-        var psLabels = { matrix: { en: 'matrix', es: 'matrices' }, generated: { en: 'generated', es: 'generado' }, motion: { en: 'motion', es: 'movimiento' } };
+        var psLabels = { matrix: { en: 'matrix', es: 'matrices' }, videos: { en: 'Videos', es: 'Videos' } };
         prevLabel.textContent = (psLabels[ps.name] || {})[psLang] || ps.name;
         prevLabel.dataset.section = ps.name;
         prevBtn.dataset.target = ps.first;
@@ -142,7 +138,7 @@
       if (idx < SECTIONS.length - 1) {
         var ns = SECTIONS[idx + 1];
         var nsLang = window.I18n ? window.I18n.getLang() : 'en';
-        var nsLabels = { matrix: { en: 'matrix', es: 'matrices' }, generated: { en: 'generated', es: 'generado' }, motion: { en: 'motion', es: 'movimiento' } };
+        var nsLabels = { matrix: { en: 'matrix', es: 'matrices' }, videos: { en: 'Videos', es: 'Videos' } };
         nextLabel.textContent = (nsLabels[ns.name] || {})[nsLang] || ns.name;
         nextLabel.dataset.section = ns.name;
         nextBtn.dataset.target = ns.first;
