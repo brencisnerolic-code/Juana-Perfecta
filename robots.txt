@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+Disallow: /COPIA_ pero no usar/
+Disallow: /.claude/
+
+Allow: *.css
+Allow: *.js
+Allow: *.jpg
+Allow: *.png
+Allow: *.webp
+Allow: *.svg
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+Sitemap: https://juanaperfecta.com/sitemap.xml

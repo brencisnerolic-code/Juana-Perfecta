@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://juanaperfecta.com/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://juanaperfecta.com/img/bio/brenda.jpg</image:loc>
+      <image:title>Juana Perfecta - Visual Artist</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://juanaperfecta.com/img/hero/hero.jpg</image:loc>
+      <image:title>Juana Perfecta - Contemporary Art</image:title>
+    </image:image>
+  </url>
+
+</urlset>
