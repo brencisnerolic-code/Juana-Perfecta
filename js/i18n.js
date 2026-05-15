@@ -63,8 +63,8 @@
 
     /* ─── Abstract Art Intro ─── */
     'abs.label':           { en: 'Series 2022–2023', es: 'Serie 2022–2023' },
-    'abs.title':           { en: 'Textures Becomes Structure', es: 'Texturas de la estructura' },
-    'abs.section.name':    { en: 'Textures Becomes Structure', es: 'Texturas de la estructura' },
+    'abs.title':           { en: 'Textures Become Structure', es: 'Texturas de la estructura' },
+    'abs.section.name':    { en: 'Textures Become Structure', es: 'Texturas de la estructura' },
     'abs.intro.p1':        { en: 'In this abstract collection, the artist explores a diversity of works that emerge from her emotions, transforming them into a powerful tool of creation. Each piece invites the viewer to immerse in a world of sensations and reflections, where abstraction comes alive through personal expression.', es: 'En esta colección abstracta, la artista explora una diversidad de obras que surgen de sus emociones, convirtiéndolas en una poderosa herramienta de creación. Cada pieza invita al espectador a sumergirse en un mundo de sensaciones y reflexiones, donde lo abstracto cobra vida a través de la expresión personal.' },
     'abs.intro.p2':        { en: 'The emotional connection established between art and observer is fundamental to this artistic proposal.', es: 'La conexión emocional que se establece entre el arte y el observador es fundamental en esta propuesta artística.' },
 
