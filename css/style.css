@@ -2145,3 +2145,20 @@ body.room-is-dark .sound-toggle {
   opacity: 1;
   transform: none;
 }
+
+/* ── SKELETON LOADERS ──────────────────────────────────────── */
+@keyframes skeleton-pulse {
+  0%, 100% { background-color: var(--surface); }
+  50% { background-color: var(--muted); }
+}
+
+picture img[loading="lazy"] {
+  background-color: var(--surface);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+picture img[loading="lazy"]:not([src*="?"]) {
+  animation: none;
+  background-color: transparent;
+}
+}
