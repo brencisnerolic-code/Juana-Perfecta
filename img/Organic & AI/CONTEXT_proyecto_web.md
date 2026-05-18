@@ -5,7 +5,7 @@
 > Leer este archivo completo antes de escribir cualquier línea de código.
 > Read this file completely before writing any line of code.
 > Este archivo debe estar en la raíz del proyecto.
-> **Última actualización: 13 marzo 2026**
+> **Última actualización: 18 mayo 2026**
 
 ---
 
@@ -372,6 +372,15 @@ Brenda desafía la noción de que el prestigio de un artista se correlaciona con
 - [ ] Sin errores en consola
 - [x] HTML semántico correcto
 
+### Optimización de Performance (18 mayo 2026)
+- [x] Convertidas 120 matrices PNG → WebP (93-98% reducción de tamaño)
+- [x] Implementado lazy loading en todas las matrices (loading="lazy")
+- [x] Agregados skeleton loaders CSS (animación mientras carga)
+- [x] Picture elements con fallback PNG para navegadores antiguos
+- [ ] Configurar caché HTTP en GitHub Pages (pendiente: decisión Cloudflare vs Netlify)
+- [ ] Convertir imágenes restantes a WebP
+- [ ] AVIF para imágenes de prueba (compresión adicional 67%)
+
 ### Diseño
 - [ ] Estética coherente con maxmilkin.com (NOTA: el sitio actual usa fondo claro cálido, no oscuro como maxmilkin — pendiente decisión de la artista)
 - [x] Paleta máximo 3 colores
@@ -395,4 +404,4 @@ Brenda desafía la noción de que el prestigio de un artista se correlaciona con
 
 *Documento de contexto — Proyecto web Juana Perfecta*
 *Brenda Cisnero · juanaperfectacisnero@gmail.com · @juanaperfecta*
-*Generado: Marzo 2026 — Última actualización: 11 mayo 2026*
+*Generado: Marzo 2026 — Última actualización: 18 mayo 2026*
