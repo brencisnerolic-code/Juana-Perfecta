@@ -13,8 +13,7 @@
     biomaterials: ['bio-proyecto', 'process-intro', 'process-matriz-01', 'process-matriz-02', 'process-matriz-03', 'process-matriz-04', 'process-matriz-05', 'process-matriz-06', 'process-matriz-07', 'process-matriz-08', 'process-matriz-09', 'process-matriz-10', 'process-matriz-11', 'process-matriz-12', 'process-matriz-13', 'process-matriz-14', 'process-matriz-15', 'process-matriz-16', 'process-matriz-17', 'works-video-intro', 'works-video-constellations', 'works-video-01', 'works-video-02', 'works-video-03', 'works-video-04', 'works-video-05'],
     abstract:     ['abstract-intro', 'art-abstracta-01', 'art-abstracta-02', 'art-abstracta-03', 'art-abstracta-04', 'art-abstracta-05', 'art-abstracta-06', 'art-abstracta-07', 'art-abstracta-08', 'art-abstracta-09', 'art-abstracta-10'],
     platasi:      ['platasi-intro', 'art-platasi-01', 'art-platasi-02', 'art-platasi-03', 'art-platasi-04', 'art-platasi-05', 'art-platasi-06', 'art-platasi-07', 'art-platasi-08'],
-    artista:      ['statement', 'about', 'contact'],
-    caso:         ['caso-01', 'caso-02', 'caso-03', 'caso-04', 'caso-05', 'caso-06', 'caso-07', 'caso-08', 'caso-09']
+    artista:      ['statement', 'about', 'contact']
   };
 
   // ── State ───────────────────────────────────────────────────
