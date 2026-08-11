@@ -111,12 +111,48 @@
       el._speed = 0.25 + Math.random() * 0.35;
       el._cfg   = item.cfg;
 
-      // Hover handlers
+      // Hover handlers (desktop / mouse)
       el.addEventListener('mouseenter', function () { onHover(el); });
       el.addEventListener('mouseleave', function () { onLeave(); });
 
+      // Tap handler (touch devices: no hover, so click toggles reveal)
+      el.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (el.classList.contains('is-hovered')) {
+          onLeave();
+        } else {
+          onHover(el);
+        }
+      });
+
       container.appendChild(el);
       elements.push(el);
+    });
+
+    clampOverflow(container);
+
+    // Web fonts (DM Mono) load async — text metrics can change once the
+    // real font swaps in for the fallback, so re-clamp once it's ready.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { clampOverflow(container); });
+    }
+  }
+
+  // ── Clamp words that overflow the container horizontally ──────
+  // (long words + large font-size on narrow viewports could otherwise
+  // render off-screen)
+  function clampOverflow(container) {
+    var containerRect = container.getBoundingClientRect();
+    elements.forEach(function (el) {
+      el.style.left = el.dataset.origLeft || el.style.left;
+      var rect = el.getBoundingClientRect();
+      var overflowRight = rect.right - containerRect.right;
+      if (overflowRight > 0) {
+        if (!el.dataset.origLeft) el.dataset.origLeft = el.style.left;
+        var currentLeftPx = rect.left - containerRect.left;
+        var newLeftPx = Math.max(4, currentLeftPx - overflowRight - 8);
+        el.style.left = (newLeftPx / containerRect.width * 100) + '%';
+      }
     });
   }
 
@@ -346,6 +382,14 @@
   function init() {
     var container = document.getElementById('bio-words-field');
     if (!container) return;
+
+    // Tap outside a word (background of the room) dismisses the open preview
+    var room = document.getElementById('bio-proyecto');
+    if (room) {
+      room.addEventListener('click', function (e) {
+        if (!e.target.closest('.bio-word')) onLeave();
+      });
+    }
 
     previewEl  = document.getElementById('bio-words-preview');
     previewImg = document.getElementById('bio-words-preview-img');

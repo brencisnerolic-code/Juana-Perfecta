@@ -13,7 +13,8 @@
     biomaterials: ['bio-proyecto', 'process-intro', 'process-matriz-01', 'process-matriz-02', 'process-matriz-03', 'process-matriz-04', 'process-matriz-05', 'process-matriz-06', 'process-matriz-07', 'process-matriz-08', 'process-matriz-09', 'process-matriz-10', 'process-matriz-11', 'process-matriz-12', 'process-matriz-13', 'process-matriz-14', 'process-matriz-15', 'process-matriz-16', 'process-matriz-17', 'works-img-04', 'works-img-02', 'works-img-05', 'works-img-06', 'works-img-08', 'works-img-09', 'works-img-10', 'works-img-07', 'works-video-intro', 'works-video-constellations', 'works-video-01', 'works-video-02', 'works-video-03', 'works-video-04', 'works-video-05'],
     abstract:     ['abstract-intro', 'art-abstracta-01', 'art-abstracta-02', 'art-abstracta-03', 'art-abstracta-04', 'art-abstracta-05', 'art-abstracta-06', 'art-abstracta-07', 'art-abstracta-08', 'art-abstracta-09', 'art-abstracta-10'],
     platasi:      ['platasi-intro', 'art-platasi-01', 'art-platasi-02', 'art-platasi-03', 'art-platasi-04', 'art-platasi-05', 'art-platasi-06', 'art-platasi-07', 'art-platasi-08'],
-    artista:      ['statement', 'about', 'contact']
+    artista:      ['statement', 'about', 'contact'],
+    caso:         ['caso-01', 'caso-02', 'caso-03', 'caso-04', 'caso-05', 'caso-06', 'caso-07', 'caso-08', 'caso-09']
   };
 
   // ── State ───────────────────────────────────────────────────
@@ -108,8 +109,23 @@
     return true;
   }
 
+  // Navigation intents can arrive while a transition is still locked
+  // (e.g. clicking a menu link right after landing on a room). Instead of
+  // silently dropping them, retry once the lock clears instead of losing
+  // the user's action. Bounded so a permanently-stuck lock can't loop forever.
+  var RETRY_DELAY = 100;
+  var RETRY_MAX   = Math.ceil(DURATION / RETRY_DELAY) + 2;
+
+  function retryIfLocked(fn, attempt) {
+    attempt = attempt || 0;
+    if (!locked) { fn(); return; }
+    if (attempt >= RETRY_MAX) return; // give up: lock genuinely stuck
+    setTimeout(function () { retryIfLocked(fn, attempt + 1); }, RETRY_DELAY);
+  }
+
   // ── Linear navigation within context ────────────────────────
   function next() {
+    if (locked) { retryIfLocked(next); return; }
     if (currentIdx < CONTEXTS[currentCtx].length - 1) {
       return go(currentCtx, currentIdx + 1, 'forward');
     }
@@ -117,6 +133,7 @@
   }
 
   function prev() {
+    if (locked) { retryIfLocked(prev); return; }
     if (currentIdx > 0) {
       return go(currentCtx, currentIdx - 1, 'backward');
     } else if (currentCtx !== 'main') {
@@ -128,13 +145,15 @@
 
   // ── Context navigation ──────────────────────────────────────
   function enterContext(name, startIdx) {
-    if (!CONTEXTS[name] || locked) return;
+    if (!CONTEXTS[name]) return;
+    if (locked) { retryIfLocked(function () { enterContext(name, startIdx); }); return; }
     returnStack.push({ ctx: currentCtx, idx: currentIdx });
     go(name, startIdx || 0, 'forward');
   }
 
   function exitContext() {
-    if (!returnStack.length || locked) return false;
+    if (!returnStack.length) return false;
+    if (locked) { retryIfLocked(exitContext); return; }
     var ret = returnStack.pop();
     return go(ret.ctx, ret.idx, 'backward');
   }

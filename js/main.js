@@ -129,6 +129,37 @@
   }
 
 
+  // ── SCROLL REVEAL (case-study rooms) ────────────────────────
+  // Elements marked [data-reveal-scroll] fade + rise into place as
+  // they enter the scrollable panel — precise, not instant, not slow.
+  function initScrollReveal() {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.room--caso').forEach(function (room) {
+      var scroller = room.querySelector('.room__content--centered');
+      if (!scroller) return;
+
+      var targets = scroller.querySelectorAll('[data-reveal-scroll]');
+      if (!targets.length) return;
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('is-revealed'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { root: scroller, threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+
+      targets.forEach(function (el) { io.observe(el); });
+    });
+  }
+
   // ── SECTION JUMP BUTTONS ────────────────────────────────
   function initSectionJumps() {
     if (!window.RoomState) return;
@@ -201,6 +232,53 @@
 
     window.RoomState.onChange(update);
     update(window.RoomState.makeState ? window.RoomState.makeState() : null);
+  }
+
+  // ── CONTACT FORM (Netlify Forms, AJAX submit) ────────────────
+  function initContactForm() {
+    var form = document.querySelector('form[name="contact"]');
+    if (!form) return;
+    var statusEl = form.querySelector('[data-form-status]');
+    var lang = function () { return window.I18n ? window.I18n.getLang() : 'en'; };
+    var MSG = {
+      sending: { en: 'Sending…', es: 'Enviando…' },
+      success: { en: 'Thank you — your message has been sent.', es: 'Gracias — tu mensaje fue enviado.' },
+      error:   { en: 'Something went wrong. Please try again or email directly.', es: 'Algo salió mal. Probá de nuevo o escribí por email directamente.' }
+    };
+    function setStatus(state, key) {
+      if (!statusEl) return;
+      statusEl.dataset.state = state;
+      statusEl.textContent = MSG[key][lang()] || MSG[key].en;
+    }
+    function encode(data) {
+      return Object.keys(data).map(function (k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+      }).join('&');
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+      if (submitBtn) submitBtn.disabled = true;
+      setStatus('pending', 'sending');
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(data)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('Form submission failed: ' + res.status);
+        setStatus('success', 'success');
+        form.reset();
+      }).catch(function () {
+        setStatus('error', 'error');
+      }).finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
+    });
   }
 
   // ── GLOBAL SCROLL BUTTONS ────────────────────────────────
@@ -281,11 +359,17 @@
     // 12. Reveal animations on room change
     initRoomReveal();
 
+    // 12b. Scroll-triggered reveal for case-study rooms
+    initScrollReveal();
+
     // 13. Section jump buttons (matrix / generated / motion)
     initSectionJumps();
 
     // 14. Global scroll up/down
     initGlobalScroll();
+
+    // 14b. Contact form (Netlify Forms AJAX submit)
+    initContactForm();
 
     // 15. Touch device: adapt bio hint text + add touch class to body
     (function () {

@@ -222,6 +222,11 @@
     navOverlay.classList.add('is-open');
     navOverlay.setAttribute('aria-hidden', 'false');
     document.body.classList.add('nav-is-open');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+
+    // Move focus into the overlay for keyboard/screen-reader users.
+    var firstLink = navOverlay.querySelector('.nav-overlay__close, .nav-overlay__link');
+    if (firstLink) firstLink.focus();
   }
 
   function closeNav() {
@@ -229,6 +234,10 @@
     navOverlay.classList.remove('is-open');
     navOverlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('nav-is-open');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+
+    // Return focus to the trigger that opened the menu
+    if (navToggle) navToggle.focus();
   }
 
   function toggleNav() {
@@ -258,6 +267,12 @@
     // Nav overlay toggle
     if (navToggle) {
       navToggle.addEventListener('click', toggleNav);
+    }
+
+    // Explicit close button
+    var navClose = document.querySelector('[data-nav-close]');
+    if (navClose) {
+      navClose.addEventListener('click', closeNav);
     }
 
     // Close overlay on background click
