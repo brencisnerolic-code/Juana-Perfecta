@@ -26,6 +26,24 @@
     'hub.abs.subtitle':    { en: 'Mixed Media · 2022 / 2023', es: 'Técnica mixta · 2022 / 2023' },
     'hub.pla.subtitle':    { en: 'Mixed media · 2023 / 2024', es: 'Técnica mixta · 2023 / 2024' },
 
+    /* ─── Biomaterials Menu ─── */
+    'bio.menu.matrix':     { en: 'Matrices', es: 'Matrices' },
+    'bio.menu.matrix.desc':{ en: 'Biomaterial scans', es: 'Escaneos de biomateriales' },
+    'bio.menu.art':        { en: 'Generative Art', es: 'Arte generativo' },
+    'bio.menu.art.desc':   { en: 'Images created from the matrices', es: 'Imágenes creadas a partir de las matrices' },
+    'bio.menu.video':      { en: 'Generated Videos', es: 'Videos generados' },
+    'bio.menu.video.desc': { en: 'Motion created from the matrices', es: 'Movimiento creado a partir de las matrices' },
+
+    /* ─── Biomaterials Side Tabs ─── */
+    'bio.tab.video':       { en: 'Videos', es: 'Videos' },
+
+    /* ─── Biomaterials Labels ─── */
+    'bio.cap.matrix':      { en: 'Matrix', es: 'Matriz' },
+    'bio.cap.constellations': { en: 'Constellations', es: 'Constelaciones' },
+    'bio.cap.motion':      { en: 'motion', es: 'movimiento' },
+    'bio.footer':          { en: 'Biomaterials · AI Generative', es: 'Biomateriales · IA Generativa' },
+    'bio.hint':            { en: 'hover a word', es: 'pasá el cursor por una palabra' },
+
     /* ─── Biomaterials Intro ─── */
     'bio.label':           { en: 'Project', es: 'Proyecto' },
     'bio.title':           { en: 'Biomaterials — AI Generative', es: 'Biomateriales — IA Generativa' },

@@ -203,6 +203,14 @@
       return;
     }
 
+    // 2b. Jump straight to a room in the current context (biomaterials menu)
+    var gotoBtn = e.target.closest('[data-goto]');
+    if (gotoBtn) {
+      e.preventDefault();
+      window.RoomState.goToRoom(gotoBtn.dataset.goto);
+      return;
+    }
+
     // 3. Regular prev/next buttons
     var navBtn = e.target.closest('.room__nav');
     if (navBtn) {

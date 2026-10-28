@@ -2731,3 +2731,144 @@ picture img[loading="lazy"]:not([src*="?"]) {
   }
 }
 }
+
+/* ── Biomaterials menu (3 direct paths) ─────────────────── */
+.room--bio-menu {
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bio-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  width: 100%;
+  max-width: var(--max-width);
+  padding: var(--space-lg) var(--gutter);
+}
+
+.bio-menu__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--muted);
+  text-align: left;
+  cursor: none;
+  transition: transform 0.4s var(--ease-out-expo), border-color 0.4s ease;
+}
+
+.bio-menu__item:hover {
+  transform: translateY(-4px);
+  border-top-color: var(--accent);
+}
+
+.bio-menu__num {
+  font-size: var(--fs-caption);
+  color: var(--text);
+  letter-spacing: 0.08em;
+}
+
+.bio-menu__title {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.bio-menu__desc {
+  font-size: var(--fs-caption);
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .bio-menu {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-lg) var(--gutter);
+  }
+}
+
+/* ── Biomaterials shortcuts (jump to the other sections) ── */
+.bio-jump {
+  position: absolute;
+  bottom: calc(var(--space-md) + 4.5rem + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  max-width: 92vw;
+}
+
+.bio-jump__btn,
+.bio-edge {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: "DM Mono", monospace;
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 1;
+  text-shadow: 0 0 6px rgba(232, 224, 212, 0.6);
+  cursor: none;
+  transition: opacity 0.3s ease;
+}
+
+.bio-jump__btn:hover,
+.bio-edge:hover {
+  opacity: 1;
+}
+
+/* ── Side tabs in generative art (left / right edge) ── */
+.bio-edge {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  writing-mode: vertical-rl;
+}
+
+.bio-edge--left {
+  left: 0.5rem;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.bio-edge--right {
+  right: 0.5rem;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .bio-jump {
+    gap: var(--space-sm);
+  }
+  .bio-jump__btn {
+    font-size: 0.6rem;
+  }
+}
+
+/* Biomaterials uses its own side tabs, so hide the generic section jump */
+body[data-context="biomaterials"] .section-jump {
+  display: none;
+}
+
+/* ── Matrices: same frame for every image (4:5, centered, never cropped by the viewport) ── */
+.room--matrix .fullimg__image {
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  right: auto;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: min(80vh, 100vw);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}

@@ -126,7 +126,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css?v=20260811a">
+  <link rel="stylesheet" href="css/style.css?v=20261028i">
 </head>
 <body>
 
@@ -282,8 +282,35 @@
 
     <!-- ═══════════════════════════════════════════════════════
          BIOMATERIALS CONTEXT
-         Proyecto → Matrices (4) → AI Gen Imágenes (1) → AI Gen Videos (3)
+         Menú → Proyecto → Matrices → Arte generativo → Videos generados
          ═══════════════════════════════════════════════════════ -->
+
+    <!-- Menú Biomateriales: tres caminos directos -->
+    <section class="room room--bio-menu" id="bio-menu" data-context="biomaterials">
+      <nav class="bio-menu" aria-label="Biomateriales">
+        <button class="bio-menu__item mag-btn" data-goto="process-intro">
+          <span class="bio-menu__num text-mono">01</span>
+          <span class="bio-menu__title heading-2" data-i18n="bio.menu.matrix">Matrices</span>
+          <span class="bio-menu__desc text-mono" data-i18n="bio.menu.matrix.desc">Escaneos de biomateriales</span>
+        </button>
+        <button class="bio-menu__item mag-btn" data-goto="gen-art-01">
+          <span class="bio-menu__num text-mono">02</span>
+          <span class="bio-menu__title heading-2" data-i18n="bio.menu.art">Arte generativo</span>
+          <span class="bio-menu__desc text-mono" data-i18n="bio.menu.art.desc">Imágenes creadas a partir de las matrices</span>
+        </button>
+        <button class="bio-menu__item mag-btn" data-goto="works-video-intro">
+          <span class="bio-menu__num text-mono">03</span>
+          <span class="bio-menu__title heading-2" data-i18n="bio.menu.video">Videos generados</span>
+          <span class="bio-menu__desc text-mono" data-i18n="bio.menu.video.desc">Movimiento creado a partir de las matrices</span>
+        </button>
+      </nav>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </section>
 
     <!-- Proyecto (diccionario secreto — emotion words) -->
     <section class="room room--words-bio" id="bio-proyecto" data-context="biomaterials">
@@ -292,8 +319,8 @@
         <img src="" alt="" class="words-bio-preview__img" id="bio-words-preview-img">
       </div>
       <div class="words-bio-footer">
-        <span class="words-bio-footer__label text-mono">Biomaterials · AI Generative</span>
-        <p class="words-bio-footer__hint text-mono">hover a word</p>
+        <span class="words-bio-footer__label text-mono" data-i18n="bio.footer">Biomaterials · AI Generative</span>
+        <p class="words-bio-footer__hint text-mono" data-i18n="bio.hint">hover a word</p>
       </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver a obras" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -309,7 +336,9 @@
 
     <!-- Process intro: video breath -->
     <section class="room room--breath room--breath-video" id="process-intro" data-context="biomaterials">
-      <video class="process-intro__bg" src="img/Organic%20%26%20AI/matrices%20/video-c61a3b65-8afc-44d8-9657-23b8e2bf9af1.mp4" muted playsinline preload="none"></video>
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <video class="process-intro__bg" src="img/matrices/video-c61a3b65-8afc-44d8-9657-23b8e2bf9af1.mp4" muted playsinline preload="none"></video>
       <div class="breath__overlay"></div>
       <div class="breath__content">
         <p class="breath__text heading-2" data-reveal data-i18n="process.intro.text">These images document biomaterial matrices created by hand and scanned during different stages of their transformation.</p>
@@ -325,17 +354,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0001 -->
-    <section class="room room--fullimg" id="process-matriz-01" data-context="biomaterials">
+    <!-- Matriz 01 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-01" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200121.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200121.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200121.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200121.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-01.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-01.jpg">
+        <source srcset="img/matrices-web/matriz-01.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-01.jpg" alt="Matriz biomaterial 01" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0121</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -347,17 +375,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0002 -->
-    <section class="room room--fullimg" id="process-matriz-02" data-context="biomaterials">
+    <!-- Matriz 02 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-02" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200138.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200138.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200138.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200138.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-02.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-02.jpg">
+        <source srcset="img/matrices-web/matriz-02.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-02.jpg" alt="Matriz biomaterial 02" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0138</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -369,17 +396,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0003 -->
-    <section class="room room--fullimg" id="process-matriz-03" data-context="biomaterials">
+    <!-- Matriz 03 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-03" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200115.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200115.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200115.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200115.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-03.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-03.jpg">
+        <source srcset="img/matrices-web/matriz-03.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-03.jpg" alt="Matriz biomaterial 03" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0115</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -391,17 +417,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0005 -->
-    <section class="room room--fullimg" id="process-matriz-04" data-context="biomaterials">
+    <!-- Matriz 04 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-04" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200128.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200128.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200128.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200128.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-04.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-04.jpg">
+        <source srcset="img/matrices-web/matriz-04.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-04.jpg" alt="Matriz biomaterial 04" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0128</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -413,17 +438,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0007 -->
-    <section class="room room--fullimg" id="process-matriz-05" data-context="biomaterials">
+    <!-- Matriz 05 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-05" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200001.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200001.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200001.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200001.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-05.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-05.jpg">
+        <source srcset="img/matrices-web/matriz-05.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-05.jpg" alt="Matriz biomaterial 05" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0001</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -435,17 +459,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0012 -->
-    <section class="room room--fullimg" id="process-matriz-06" data-context="biomaterials">
+    <!-- Matriz 06 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-06" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200135.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200135.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200135.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200135.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-06.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-06.jpg">
+        <source srcset="img/matrices-web/matriz-06.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-06.jpg" alt="Matriz biomaterial 06" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0135</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -457,17 +480,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0092 -->
-    <section class="room room--fullimg" id="process-matriz-07" data-context="biomaterials">
+    <!-- Matriz 07 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-07" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200113.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200113.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200113.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200113.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-07.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-07.jpg">
+        <source srcset="img/matrices-web/matriz-07.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-07.jpg" alt="Matriz biomaterial 07" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0113</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -479,17 +501,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0106 -->
-    <section class="room room--fullimg" id="process-matriz-08" data-context="biomaterials">
+    <!-- Matriz 08 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-08" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200120.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200120.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200120.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200120.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-08.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-08.jpg">
+        <source srcset="img/matrices-web/matriz-08.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-08.jpg" alt="Matriz biomaterial 08" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0120</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -501,17 +522,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0113 -->
-    <section class="room room--fullimg" id="process-matriz-09" data-context="biomaterials">
+    <!-- Matriz 09 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-09" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200116.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200116.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200116.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200116.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-09.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-09.jpg">
+        <source srcset="img/matrices-web/matriz-09.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-09.jpg" alt="Matriz biomaterial 09" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0116</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -523,17 +543,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0114 -->
-    <section class="room room--fullimg" id="process-matriz-10" data-context="biomaterials">
+    <!-- Matriz 10 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-10" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200114.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200114.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200114.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200114.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-10.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-10.jpg">
+        <source srcset="img/matrices-web/matriz-10.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-10.jpg" alt="Matriz biomaterial 10" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0114</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -545,17 +564,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0115 -->
-    <section class="room room--fullimg" id="process-matriz-11" data-context="biomaterials">
+    <!-- Matriz 11 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-11" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200003.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200003.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200003.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200003.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-11.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-11.jpg">
+        <source srcset="img/matrices-web/matriz-11.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-11.jpg" alt="Matriz biomaterial 11" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0003</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -567,17 +585,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0116 -->
-    <section class="room room--fullimg" id="process-matriz-12" data-context="biomaterials">
+    <!-- Matriz 12 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-12" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200007.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200007.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200007.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200007.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-12.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-12.jpg">
+        <source srcset="img/matrices-web/matriz-12.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-12.jpg" alt="Matriz biomaterial 12" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0007</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -589,17 +606,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0120 -->
-    <section class="room room--fullimg" id="process-matriz-13" data-context="biomaterials">
+    <!-- Matriz 13 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-13" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200012.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200012.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200012.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200012.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-13.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-13.jpg">
+        <source srcset="img/matrices-web/matriz-13.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-13.jpg" alt="Matriz biomaterial 13" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0012</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -611,17 +627,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0121 -->
-    <section class="room room--fullimg" id="process-matriz-14" data-context="biomaterials">
+    <!-- Matriz 14 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-14" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200005.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200005.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200005.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200005.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-14.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-14.jpg">
+        <source srcset="img/matrices-web/matriz-14.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-14.jpg" alt="Matriz biomaterial 14" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0005</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -633,17 +648,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0128 -->
-    <section class="room room--fullimg" id="process-matriz-15" data-context="biomaterials">
+    <!-- Matriz 15 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-15" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200106.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200106.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200106.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200106.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-15.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-15.jpg">
+        <source srcset="img/matrices-web/matriz-15.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-15.jpg" alt="Matriz biomaterial 15" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0106</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -655,17 +669,16 @@
       </button>
     </section>
 
-    <!-- Matrix 0135 -->
-    <section class="room room--fullimg" id="process-matriz-16" data-context="biomaterials">
+    <!-- Matriz 16 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-16" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200002.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200002.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200002.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200002.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-16.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-16.jpg">
+        <source srcset="img/matrices-web/matriz-16.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-16.jpg" alt="Matriz biomaterial 16" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0002</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
@@ -677,21 +690,1448 @@
       </button>
     </section>
 
-    <!-- Matrix 0138 -->
-    <section class="room room--fullimg" id="process-matriz-17" data-context="biomaterials">
+    <!-- Matriz 17 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-17" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
       <picture>
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200092.webp?v=20260513e" type="image/webp">
-        <source media="(max-width: 768px)" srcset="img/Organic%20%26%20AI/matrices%20celular%20web%20%281080%20x%201350%20px%29/Matrix%200092.png?v=20260513e">
-        <source srcset="img/Organic%20%26%20AI/matrices%20/Matrix%200092.webp?v=20260513e" type="image/webp">
-        <img src="img/Organic%20%26%20AI/matrices%20/Matrix%200092.png?v=20260513e" alt="Organic matrix — biomaterial scan" class="fullimg__image" loading="lazy">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-17.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-17.jpg">
+        <source srcset="img/matrices-web/matriz-17.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-17.jpg" alt="Matriz biomaterial 17" class="fullimg__image" loading="lazy">
       </picture>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Matrix 0092</span>
-      </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       </button>
-      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente" data-target="works-video-intro">
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 18 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-18" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-18.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-18.jpg">
+        <source srcset="img/matrices-web/matriz-18.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-18.jpg" alt="Matriz biomaterial 18" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 19 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-19" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-19.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-19.jpg">
+        <source srcset="img/matrices-web/matriz-19.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-19.jpg" alt="Matriz biomaterial 19" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 20 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-20" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-20.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-20.jpg">
+        <source srcset="img/matrices-web/matriz-20.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-20.jpg" alt="Matriz biomaterial 20" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 21 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-21" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-21.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-21.jpg">
+        <source srcset="img/matrices-web/matriz-21.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-21.jpg" alt="Matriz biomaterial 21" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 22 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-22" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-22.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-22.jpg">
+        <source srcset="img/matrices-web/matriz-22.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-22.jpg" alt="Matriz biomaterial 22" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 23 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-23" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-23.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-23.jpg">
+        <source srcset="img/matrices-web/matriz-23.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-23.jpg" alt="Matriz biomaterial 23" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 24 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-24" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-24.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-24.jpg">
+        <source srcset="img/matrices-web/matriz-24.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-24.jpg" alt="Matriz biomaterial 24" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 25 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-25" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-25.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-25.jpg">
+        <source srcset="img/matrices-web/matriz-25.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-25.jpg" alt="Matriz biomaterial 25" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 26 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-26" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-26.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-26.jpg">
+        <source srcset="img/matrices-web/matriz-26.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-26.jpg" alt="Matriz biomaterial 26" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 27 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-27" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-27.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-27.jpg">
+        <source srcset="img/matrices-web/matriz-27.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-27.jpg" alt="Matriz biomaterial 27" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 28 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-28" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-28.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-28.jpg">
+        <source srcset="img/matrices-web/matriz-28.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-28.jpg" alt="Matriz biomaterial 28" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 29 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-29" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-29.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-29.jpg">
+        <source srcset="img/matrices-web/matriz-29.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-29.jpg" alt="Matriz biomaterial 29" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 30 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-30" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-30.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-30.jpg">
+        <source srcset="img/matrices-web/matriz-30.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-30.jpg" alt="Matriz biomaterial 30" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 31 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-31" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-31.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-31.jpg">
+        <source srcset="img/matrices-web/matriz-31.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-31.jpg" alt="Matriz biomaterial 31" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Matriz 32 -->
+    <section class="room room--fullimg room--matrix" id="process-matriz-32" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-32.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/matrices-web/celular/matriz-32.jpg">
+        <source srcset="img/matrices-web/matriz-32.webp" type="image/webp">
+        <img src="img/matrices-web/matriz-32.jpg" alt="Matriz biomaterial 32" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 01 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-01" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-01.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-01.jpg">
+        <source srcset="img/arte-generativo-web/arte-01.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-01.jpg" alt="Arte generativo 01" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 02 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-02" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-02.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-02.jpg">
+        <source srcset="img/arte-generativo-web/arte-02.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-02.jpg" alt="Arte generativo 02" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 03 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-03" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-03.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-03.jpg">
+        <source srcset="img/arte-generativo-web/arte-03.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-03.jpg" alt="Arte generativo 03" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 04 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-04" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-04.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-04.jpg">
+        <source srcset="img/arte-generativo-web/arte-04.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-04.jpg" alt="Arte generativo 04" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 05 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-05" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-05.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-05.jpg">
+        <source srcset="img/arte-generativo-web/arte-05.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-05.jpg" alt="Arte generativo 05" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 06 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-06" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-06.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-06.jpg">
+        <source srcset="img/arte-generativo-web/arte-06.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-06.jpg" alt="Arte generativo 06" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 07 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-07" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-07.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-07.jpg">
+        <source srcset="img/arte-generativo-web/arte-07.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-07.jpg" alt="Arte generativo 07" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 08 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-08" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-08.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-08.jpg">
+        <source srcset="img/arte-generativo-web/arte-08.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-08.jpg" alt="Arte generativo 08" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 09 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-09" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-09.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-09.jpg">
+        <source srcset="img/arte-generativo-web/arte-09.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-09.jpg" alt="Arte generativo 09" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 10 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-10" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-10.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-10.jpg">
+        <source srcset="img/arte-generativo-web/arte-10.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-10.jpg" alt="Arte generativo 10" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 11 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-11" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-11.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-11.jpg">
+        <source srcset="img/arte-generativo-web/arte-11.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-11.jpg" alt="Arte generativo 11" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 12 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-12" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-12.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-12.jpg">
+        <source srcset="img/arte-generativo-web/arte-12.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-12.jpg" alt="Arte generativo 12" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 13 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-13" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-13.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-13.jpg">
+        <source srcset="img/arte-generativo-web/arte-13.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-13.jpg" alt="Arte generativo 13" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 14 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-14" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-14.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-14.jpg">
+        <source srcset="img/arte-generativo-web/arte-14.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-14.jpg" alt="Arte generativo 14" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 15 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-15" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-15.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-15.jpg">
+        <source srcset="img/arte-generativo-web/arte-15.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-15.jpg" alt="Arte generativo 15" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 16 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-16" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-16.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-16.jpg">
+        <source srcset="img/arte-generativo-web/arte-16.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-16.jpg" alt="Arte generativo 16" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 17 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-17" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-17.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-17.jpg">
+        <source srcset="img/arte-generativo-web/arte-17.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-17.jpg" alt="Arte generativo 17" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 18 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-18" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-18.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-18.jpg">
+        <source srcset="img/arte-generativo-web/arte-18.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-18.jpg" alt="Arte generativo 18" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 19 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-19" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-19.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-19.jpg">
+        <source srcset="img/arte-generativo-web/arte-19.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-19.jpg" alt="Arte generativo 19" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 20 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-20" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-20.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-20.jpg">
+        <source srcset="img/arte-generativo-web/arte-20.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-20.jpg" alt="Arte generativo 20" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 21 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-21" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-21.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-21.jpg">
+        <source srcset="img/arte-generativo-web/arte-21.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-21.jpg" alt="Arte generativo 21" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 22 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-22" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-22.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-22.jpg">
+        <source srcset="img/arte-generativo-web/arte-22.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-22.jpg" alt="Arte generativo 22" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 23 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-23" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-23.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-23.jpg">
+        <source srcset="img/arte-generativo-web/arte-23.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-23.jpg" alt="Arte generativo 23" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 24 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-24" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-24.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-24.jpg">
+        <source srcset="img/arte-generativo-web/arte-24.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-24.jpg" alt="Arte generativo 24" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 25 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-25" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-25.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-25.jpg">
+        <source srcset="img/arte-generativo-web/arte-25.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-25.jpg" alt="Arte generativo 25" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 26 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-26" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-26.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-26.jpg">
+        <source srcset="img/arte-generativo-web/arte-26.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-26.jpg" alt="Arte generativo 26" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 27 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-27" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-27.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-27.jpg">
+        <source srcset="img/arte-generativo-web/arte-27.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-27.jpg" alt="Arte generativo 27" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 28 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-28" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-28.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-28.jpg">
+        <source srcset="img/arte-generativo-web/arte-28.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-28.jpg" alt="Arte generativo 28" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 29 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-29" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-29.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-29.jpg">
+        <source srcset="img/arte-generativo-web/arte-29.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-29.jpg" alt="Arte generativo 29" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 30 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-30" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-30.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-30.jpg">
+        <source srcset="img/arte-generativo-web/arte-30.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-30.jpg" alt="Arte generativo 30" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 31 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-31" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-31.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-31.jpg">
+        <source srcset="img/arte-generativo-web/arte-31.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-31.jpg" alt="Arte generativo 31" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 32 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-32" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-32.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-32.jpg">
+        <source srcset="img/arte-generativo-web/arte-32.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-32.jpg" alt="Arte generativo 32" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 33 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-33" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-33.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-33.jpg">
+        <source srcset="img/arte-generativo-web/arte-33.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-33.jpg" alt="Arte generativo 33" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 34 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-34" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-34.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-34.jpg">
+        <source srcset="img/arte-generativo-web/arte-34.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-34.jpg" alt="Arte generativo 34" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 35 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-35" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-35.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-35.jpg">
+        <source srcset="img/arte-generativo-web/arte-35.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-35.jpg" alt="Arte generativo 35" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 36 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-36" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-36.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-36.jpg">
+        <source srcset="img/arte-generativo-web/arte-36.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-36.jpg" alt="Arte generativo 36" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 37 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-37" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-37.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-37.jpg">
+        <source srcset="img/arte-generativo-web/arte-37.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-37.jpg" alt="Arte generativo 37" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 38 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-38" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-38.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-38.jpg">
+        <source srcset="img/arte-generativo-web/arte-38.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-38.jpg" alt="Arte generativo 38" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 39 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-39" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-39.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-39.jpg">
+        <source srcset="img/arte-generativo-web/arte-39.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-39.jpg" alt="Arte generativo 39" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 40 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-40" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-40.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-40.jpg">
+        <source srcset="img/arte-generativo-web/arte-40.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-40.jpg" alt="Arte generativo 40" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 41 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-41" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-41.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-41.jpg">
+        <source srcset="img/arte-generativo-web/arte-41.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-41.jpg" alt="Arte generativo 41" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 42 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-42" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-42.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-42.jpg">
+        <source srcset="img/arte-generativo-web/arte-42.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-42.jpg" alt="Arte generativo 42" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 43 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-43" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-43.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-43.jpg">
+        <source srcset="img/arte-generativo-web/arte-43.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-43.jpg" alt="Arte generativo 43" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 44 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-44" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-44.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-44.jpg">
+        <source srcset="img/arte-generativo-web/arte-44.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-44.jpg" alt="Arte generativo 44" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 45 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-45" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-45.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-45.jpg">
+        <source srcset="img/arte-generativo-web/arte-45.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-45.jpg" alt="Arte generativo 45" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 46 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-46" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-46.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-46.jpg">
+        <source srcset="img/arte-generativo-web/arte-46.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-46.jpg" alt="Arte generativo 46" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 47 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-47" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-47.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-47.jpg">
+        <source srcset="img/arte-generativo-web/arte-47.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-47.jpg" alt="Arte generativo 47" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 48 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-48" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-48.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-48.jpg">
+        <source srcset="img/arte-generativo-web/arte-48.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-48.jpg" alt="Arte generativo 48" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 49 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-49" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-49.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-49.jpg">
+        <source srcset="img/arte-generativo-web/arte-49.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-49.jpg" alt="Arte generativo 49" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 50 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-50" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-50.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-50.jpg">
+        <source srcset="img/arte-generativo-web/arte-50.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-50.jpg" alt="Arte generativo 50" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 51 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-51" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-51.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-51.jpg">
+        <source srcset="img/arte-generativo-web/arte-51.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-51.jpg" alt="Arte generativo 51" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 52 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-52" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-52.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-52.jpg">
+        <source srcset="img/arte-generativo-web/arte-52.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-52.jpg" alt="Arte generativo 52" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+    </section>
+
+    <!-- Arte generativo 53 -->
+    <section class="room room--fullimg room--matrix" id="gen-art-53" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="works-video-intro"><span data-i18n="bio.tab.video">Videos</span></button>
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-53.webp" type="image/webp">
+        <source media="(max-width: 768px)" srcset="img/arte-generativo-web/celular/arte-53.jpg">
+        <source srcset="img/arte-generativo-web/arte-53.webp" type="image/webp">
+        <img src="img/arte-generativo-web/arte-53.jpg" alt="Arte generativo 53" class="fullimg__image" loading="lazy">
+      </picture>
+      <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="room__nav room__nav--next mag-btn" aria-label="Siguiente">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
       <button class="room__nav room__nav--prev mag-btn" aria-label="Anterior">
@@ -701,6 +2141,8 @@
 
     <!-- Transition: video intro -->
     <section class="room room--breath room--breath-dark" id="works-video-intro" data-context="biomaterials">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
       <div class="breath__content">
         <p class="breath__text heading-2" data-reveal data-i18n="video.intro.text">Trained on these biomaterial matrices, the model translates their visual vocabulary into motion.</p>
       </div>
@@ -720,11 +2162,10 @@
 
     <!-- Constellations (first video) -->
     <section class="room room--video-full" id="works-video-constellations" data-context="biomaterials" data-room-type="video">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
       <div class="video-full__media">
         <video class="video-full__video room__video" src="video/constellations.mp4?v=20260513e" muted loop playsinline autoplay preload="none"></video>
-      </div>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">Constellations</span>
       </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -738,11 +2179,10 @@
     </section>
 
     <section class="room room--video-full" id="works-video-01" data-context="biomaterials" data-room-type="video">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
       <div class="video-full__media">
         <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/0224slow.mp4" muted loop playsinline autoplay preload="none"</video>
-      </div>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">motion · 02</span>
       </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -757,11 +2197,10 @@
 
     <!-- Video 03 -->
     <section class="room room--video-full" id="works-video-02" data-context="biomaterials" data-room-type="video">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
       <div class="video-full__media">
         <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/0220%20(1).mp4" muted loop playsinline autoplay preload="none"</video>
-      </div>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">motion · 03</span>
       </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -776,11 +2215,10 @@
 
     <!-- Video 04 -->
     <section class="room room--video-full" id="works-video-03" data-context="biomaterials" data-room-type="video">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
       <div class="video-full__media">
         <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/0220%20(2).mp4" muted loop playsinline autoplay preload="none"</video>
-      </div>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">motion · 04</span>
       </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -795,11 +2233,10 @@
 
     <!-- Video 05 -->
     <section class="room room--video-full" id="works-video-04" data-context="biomaterials" data-room-type="video">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
       <div class="video-full__media">
         <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/0220editM.mp4" muted loop playsinline autoplay preload="none"</video>
-      </div>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">motion · 05</span>
       </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -814,11 +2251,10 @@
 
     <!-- Video 05 (last) -->
     <section class="room room--video-full" id="works-video-05" data-context="biomaterials" data-room-type="video">
+      <button class="bio-edge bio-edge--left mag-btn" data-goto="process-intro"><span data-i18n="bio.menu.matrix">Matrices</span></button>
+      <button class="bio-edge bio-edge--right mag-btn" data-goto="gen-art-01"><span data-i18n="bio.menu.art">Arte generativo</span></button>
       <div class="video-full__media">
         <video class="video-full__video room__video" src="img/Organic%20%26%20AI/Videos%20hechos%20con%20Imagenes%20AI%20hechas%20con%20matriz/VIDEOS%20WEB/Step%204..mp4" muted loop playsinline autoplay preload="none"</video>
-      </div>
-      <div class="cinema__caption">
-        <span class="breath__label text-mono">motion · 06</span>
       </div>
       <button class="room__nav room__nav--back mag-btn" aria-label="Volver" data-exit-context>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -1478,7 +2914,7 @@
   </div>
 
   <!-- ═══ SCRIPTS ═══ -->
-  <script src="js/state.js?v=20260811a"></script>
+  <script src="js/state.js?v=20261028h"></script>
   <script src="js/cursor.js?v=20260811a"></script>
   <script src="js/pigment.js?v=20260811a"></script>
   <script src="js/magnetic.js?v=20260811a"></script>
@@ -1487,8 +2923,8 @@
   <script src="js/words-bio.js?v=20260811a"></script>
   <script src="js/parallax-hero.js?v=20260811a"></script>
   <script src="js/sound.js?v=20260811a"></script>
-  <script src="js/gallery.js?v=20260811a"></script>
-  <script src="js/i18n.js?v=20260811a"></script>
+  <script src="js/gallery.js?v=20261028b"></script>
+  <script src="js/i18n.js?v=20261028f"></script>
   <script src="js/main.js?v=20260811a"></script>
   <script src="js/image-processor.js?v=20260811a"></script>
 
