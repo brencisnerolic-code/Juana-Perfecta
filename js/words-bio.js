@@ -26,36 +26,36 @@
   };
 
   var WORDS = [
-    { word: 'AWE',           cfg: IMG.A },
-    { word: 'TRANSMUTATION', cfg: IMG.A },
-    { word: 'EMERGENCE',     cfg: IMG.A },
-    { word: 'JOY',           cfg: IMG.B },
-    { word: 'EMBODIMENT',    cfg: IMG.B },
-    { word: 'MATERIALITY',   cfg: IMG.B },
-    { word: 'HOPE',          cfg: IMG.C },
-    { word: 'POROSITY',      cfg: IMG.C },
-    { word: 'LIMINALITY',    cfg: IMG.C },
-    { word: 'GROWTH',        cfg: IMG.D },
-    { word: 'RESONANCE',     cfg: IMG.D },
-    { word: 'THRESHOLD',     cfg: IMG.D },
-    { word: 'PRIDE',         cfg: IMG.E },
-    { word: 'INSCRIPTION',   cfg: IMG.E },
-    { word: 'VOLATILITY',    cfg: IMG.E },
-    { word: 'GRATITUDE',     cfg: IMG.F },
-    { word: 'EPIPHANY',      cfg: IMG.F },
-    { word: 'BELONGING',     cfg: IMG.F },
-    { word: 'CLARITY',       cfg: IMG.G },
-    { word: 'TENSION',       cfg: IMG.G },
-    { word: 'CONFUSION',     cfg: IMG.G },
-    { word: 'LIBERATION',    cfg: IMG.H },
-    { word: 'EXPANSION',     cfg: IMG.H },
-    { word: 'OPTIMISM',      cfg: IMG.H },
-    { word: 'OVERWHELM',     cfg: IMG.I },
-    { word: 'EXHAUSTION',    cfg: IMG.I },
-    { word: 'ISOLATION',     cfg: IMG.I },
-    { word: 'EMPOWERED',     cfg: IMG.J },
-    { word: 'INSPIRATION',   cfg: IMG.J },
-    { word: 'DETERMINATION', cfg: IMG.J }
+    { word: 'AWE', es: 'ASOMBRO',           cfg: IMG.A },
+    { word: 'TRANSMUTATION', es: 'TRANSMUTACIÓN', cfg: IMG.A },
+    { word: 'EMERGENCE', es: 'EMERGENCIA',     cfg: IMG.A },
+    { word: 'JOY', es: 'ALEGRÍA',           cfg: IMG.B },
+    { word: 'EMBODIMENT', es: 'ENCARNACIÓN',    cfg: IMG.B },
+    { word: 'MATERIALITY', es: 'MATERIALIDAD',   cfg: IMG.B },
+    { word: 'HOPE', es: 'ESPERANZA',          cfg: IMG.C },
+    { word: 'POROSITY', es: 'POROSIDAD',      cfg: IMG.C },
+    { word: 'LIMINALITY', es: 'LIMINALIDAD',    cfg: IMG.C },
+    { word: 'GROWTH', es: 'CRECIMIENTO',        cfg: IMG.D },
+    { word: 'RESONANCE', es: 'RESONANCIA',     cfg: IMG.D },
+    { word: 'THRESHOLD', es: 'UMBRAL',     cfg: IMG.D },
+    { word: 'PRIDE', es: 'ORGULLO',         cfg: IMG.E },
+    { word: 'INSCRIPTION', es: 'INSCRIPCIÓN',   cfg: IMG.E },
+    { word: 'VOLATILITY', es: 'VOLATILIDAD',    cfg: IMG.E },
+    { word: 'GRATITUDE', es: 'GRATITUD',     cfg: IMG.F },
+    { word: 'EPIPHANY', es: 'EPIFANÍA',      cfg: IMG.F },
+    { word: 'BELONGING', es: 'PERTENENCIA',     cfg: IMG.F },
+    { word: 'CLARITY', es: 'CLARIDAD',       cfg: IMG.G },
+    { word: 'TENSION', es: 'TENSIÓN',       cfg: IMG.G },
+    { word: 'CONFUSION', es: 'CONFUSIÓN',     cfg: IMG.G },
+    { word: 'LIBERATION', es: 'LIBERACIÓN',    cfg: IMG.H },
+    { word: 'EXPANSION', es: 'EXPANSIÓN',     cfg: IMG.H },
+    { word: 'OPTIMISM', es: 'OPTIMISMO',      cfg: IMG.H },
+    { word: 'OVERWHELM', es: 'ABRUMAR',     cfg: IMG.I },
+    { word: 'EXHAUSTION', es: 'AGOTAMIENTO',    cfg: IMG.I },
+    { word: 'ISOLATION', es: 'AISLAMIENTO',     cfg: IMG.I },
+    { word: 'EMPOWERED', es: 'EMPODERADA',     cfg: IMG.J },
+    { word: 'INSPIRATION', es: 'INSPIRACIÓN',   cfg: IMG.J },
+    { word: 'DETERMINATION', es: 'DETERMINACIÓN', cfg: IMG.J }
   ];
 
   var STAGGER_IN  = 60;   // ms between each word appearing
@@ -71,6 +71,11 @@
   var previewImg = null;   // kept for fallback
   var bgCache    = {};     // processed canvas data URLs, keyed by img src
 
+  // ── Language: Spanish or English word per current site language ──
+  function wordLabel(item) {
+    return document.documentElement.lang === 'es' ? item.es : item.word;
+  }
+
   // ── Build scattered words ────────────────────────────────────
   function build(container) {
     container.innerHTML = '';
@@ -83,7 +88,7 @@
     WORDS.forEach(function (item, i) {
       var el = document.createElement('span');
       el.className = 'bio-word';
-      el.textContent = item.word;
+      el.textContent = wordLabel(item);
 
       // Grid position with randomness — avoid center rectangle
       var col = i % cols;
@@ -158,7 +163,8 @@
 
   // ── Play entrance animation ─────────────────────────────────
   function play() {
-    elements.forEach(function (el) {
+    elements.forEach(function (el, i) {
+      el.textContent = wordLabel(WORDS[i]);
       el.classList.remove('is-visible');
     });
 
