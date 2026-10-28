@@ -31,7 +31,7 @@
     'bio.menu.matrix.desc':{ en: 'Biomaterial scans', es: 'Escaneos de biomateriales' },
     'bio.menu.art':        { en: 'Generative Art', es: 'Arte generativo' },
     'bio.menu.art.desc':   { en: 'Images created from the matrices', es: 'Imágenes creadas a partir de las matrices' },
-    'bio.menu.video':      { en: 'Generated Videos', es: 'Videos generados' },
+    'bio.menu.video':      { en: 'Videos', es: 'Videos' },
     'bio.menu.video.desc': { en: 'Motion created from the matrices', es: 'Movimiento creado a partir de las matrices' },
 
     /* ─── Biomaterials Side Tabs ─── */
